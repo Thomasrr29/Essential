@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"
+        ><img
+          src="images/458_icons-02-removebg-preview.png"
+          class="logoHeader"
+          alt="Imagen del logo"
+          width="70px"
+      /></a>
+
+      <div class="menu-header">
+        <button id="button-header-favorite">
+          <i class="fa-solid fa-heart"></i>
+          <span class="counter-favorite">0</span>
+        </button>
+        <button id="button-header-carrito">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="counter-cart">0</span>
+        </button>
+      </div>
+
+      <div class="container-list-favorites">
+        <div class="header-favorite">
+          <h3 class="favorito-carrito">Mis Favoritos</h3>
+          <i class="fa-solid fa-xmark" id="btn-close"></i>
+        </div>
+        <hr />
+        <div class="list-favorites">
+          <div class="card-favorite">
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <div class="ordenarContain">
+        <div class="ordenar">
+          <span>Ordenar por:</span>
+          <select name="" id="desplegar">
+            <option value="">Relevancia</option>
+            <option value="">Mayor precio</option>
+            <option value="">Menor precio</option>
+          </select>
+        </div>
+      </div>
+
+      <section id="container">
+        <section class="category">
+          <div class="categoryFilter select">
+            <div class="titleCategory" id="tallaDropdown">
+              <span>Categoria</span>
+              <i class="fas fa-chevron-up arrowCategory" width="16px"></i>
+            </div>
+            <hr>
+            <div class="categories" id="tallaOptions">
+
+              <div class="categoriesLabels">
+                <label>
+                  <input type="checkbox" name="talla" id="checkbox"> Running
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" id="checkbox"> Trail
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" id="checkbox"> LifeStyle
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" id="checkbox"> Luxury
+                </label>
+              </div>
+              
+            </div>
+          </div>
+          <div class="subSizeFilter select">
+            <div class="titleSize" id="tallaDropdown">
+              <span>Tu talla</span>
+              <i class="fas fa-chevron-up arrowSize" width="16px"></i>
+            </div>
+            <hr>
+            <div class="subSize" id="tallaOptions">
+              <div class="sizeLabels">
+                <label>
+                  <input type="checkbox" name="talla" value="s"> 5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="m"> 5.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 6
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 6.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 7
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 7.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 8
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 8.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 9
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 9.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 10
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 10.5
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 11
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 12
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 13
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 14
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> 15
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="container-content">
+          <div class="container-products">
+
+          </div>
+        </div>
+        <div class="comparisonProducts">
+  
+        </div>
+      </section>
+    </div>
+
+    <script src="apps.js" type="module"></script>
+  </body>
+</html>

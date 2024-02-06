@@ -1,0 +1,19 @@
+{
+  "resenas": [
+    {
+      "id": "019a",
+      "expectativa": "Si",
+      "valoracion": "2",
+      "sizeValoracion": "Perfecta",
+      "comodidad": "2",
+      "Uso": "Deporte",
+      "Apodo": "Hola"
+    },
+    {
+      "id": "bec6",
+      "valoracion": "1",
+      "comodidad": "1",
+      "Apodo": ""
+    }
+  ]
+}

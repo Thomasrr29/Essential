@@ -1,0 +1,74 @@
+{
+    "productos":[
+        {
+            "id": "1",
+            "imagen":"ascisRunning.png",
+            "nombre":"Ascis Running",
+            "detalles":"Trailing",
+            "precio":"200.000"
+        },
+        {
+            "id":"2",
+            "imagen":"skecher.jpg",
+            "nombre":"Skechers",
+            "detalles":"Walking",
+            "precio":"180.000"
+        },
+        {
+            "id":"3",
+            "imagen":"skechersWalker.webp",
+            "nombre":"Skechers-W1",
+            "detalles":"LifeStyle",
+            "precio":"259.900"
+        },
+        {
+            "id":"4",
+            "imagen":"pumaRebound.jpg",
+            "nombre":"Puma Rebound",
+            "detalles":"LifeStyle",
+            "precio":"329.000"
+        },
+        {
+            "id":"5",
+            "imagen":"Sketcher.webp",
+            "nombre":"Skechers",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        },
+        {
+            "id":"6",
+            "imagen":"underGame.webp",
+            "nombre":"Under Armour",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        },
+        {
+            "id":"7",
+            "imagen":"underAssert.avif",
+            "nombre":"Under Armour Assert",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        },
+        {
+            "id":"8",
+            "imagen":"UnderCharged.avif",
+            "nombre":"Under Armour Charged",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        },
+        {
+            "id":"9",
+            "imagen":"duramoSl.jpg",
+            "nombre":"Adidas Duramo SL",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        },
+        {
+            "id":"10",
+            "imagen":"adidasResponse.avif",
+            "nombre":"Adidas Response",
+            "detalles":"LifeStyle",
+            "precio":"369.000"
+        }
+    ]
+}

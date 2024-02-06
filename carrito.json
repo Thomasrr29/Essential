@@ -1,0 +1,28 @@
+{
+  "carrito": [
+    {
+      "id": "1",
+      "img": "http://127.0.0.1:5500/favoritos/images/ascisRunning.png",
+      "title": "Ascis Running",
+      "price": "200.000"
+    },
+    {
+      "id": "3",
+      "img": "http://127.0.0.1:5500/favoritos/images/skechersWalker.webp",
+      "title": "Skechers-W1",
+      "price": "259.900"
+    },
+    {
+      "id": "2",
+      "img": "http://127.0.0.1:5500/favoritos/images/skecher.jpg",
+      "title": "Skechers",
+      "price": "180.000"
+    },
+    {
+      "id": "1",
+      "img": "http://127.0.0.1:5500/favoritos/images/ascisRunning.png",
+      "title": "Ascis Running",
+      "price": "200.000"
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Shoes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="imagenes/458_icons-02-removebg-preview.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=
+    Josefin+Sans:wght@700&family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="swiper-bundle.min.css">
+    <script src="https://kit.fontawesome.com/f142addb49.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- registro o inicio de sesion -->
+        <div class="wrapper">
+            <span class="cerrar">X</span>
+            <div class="form-box login">
+                <h2>login</h2>
+                <form action="#">
+                    <div class="input">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" required id="email1">
+                        <label for="">Email</label>
+                    </div>
+
+                    <div class="input">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" required id="password1">
+                        <label for="">password</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label for="check" id="show1"><input type="checkbox" id="check">show password</label>
+                    </div>
+                    <button type="submit" class="btn" id="btn-login">login</button>
+                    <div class="login-register">
+                        <p>Don't have an account
+                            <a href="#" class="register-link">sign up</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <div class="form-box register">
+                <h2>sign up</h2>
+                <form action="#">
+                    <div class="input">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" required id="username">
+                        <label for="">Username</label>
+                    </div>
+
+                    <div class="input">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" id="email" required>
+                        <label for="">Email</label>
+                    </div>
+
+                    <div class="input">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="password" required>
+                        <label for="">password</label>
+                    </div>
+
+                    <div class="input">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="confirm" required>
+                        <label for="">confirm password</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label for="check1" id="show2"><input type="checkbox" id="check1">show password</label>
+                    </div>
+                    <button type="submit" class="btn">sign up</button>
+                    <div class="login-register">
+                        <p>already have an account?
+                            <a href="#" class="login-link">Login</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+            
+    <header class="header">
+
+        <p class="announcements"> Envio gratis con compras apartir de $150.000 </p>
+
+        <div class="menu container">
+
+            <a href="index.html" class="logo"><img src="imagenes/458_icons-01.jpg" class="logoHeader"
+                    alt="Imagen del logo" width="70px"></a>
+            <button class="navToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="navBar">
+                <ul class="unorderList">
+                    <li class="navItem"> <a href="../proyect.com/index.html" class="navLink">Hombre</a> </li>
+                    <li class="navItem"> <a href="../proyect.com/index.html" class="navLink">Mujer</a> </li>
+                    <li class="navItem"> <a href="../otros Productos/products.html" class="navLink">Accesorios</a> </li>
+                    <li class="navItem"> <a href="#comunity" class="navLink">Descuenticos</a> </li>
+                    <li class="navItem"> <a href="#" class="navLink">Comunidad</a> </li>
+                </ul>
+            </nav>
+
+            <div class="user">
+                <input type="text" class="buscador" placeholder="buscar">
+                <a href="#" class="buscar"><img src="imagenes/buscar.png" alt="" width="25rem"></a>
+                <div class="custom-select">
+                    <div class="select-icon"><a href="#"><img src="imagenes/usuario.png" alt="" width="25rem"></a></div>
+                    <div class="options" id="options">
+                        <a href="#" onclick="abrirSesion()">Iniciar Sesión</a>
+                        <a href="#" onclick="abrirRegister()">Registrarse</a>
+                    </div>
+                </div>
+
+                <a href="#"><img src="../imagenes/favorito.png" alt="" width="25rem"></a>
+            </div>
+
+        </div>
+
+
+    </header>
+
+    <div class="containerAllPage">
+        <section class="imageSection">
+
+            <div class="twoImages">
+                <div class="divImage1">
+                    <img src="imagenes/Curry.jpg" alt="" class="firstImage imgSection">
+                    <button class="firstButton buttonImageSection">
+                        <a href="../proyect.com/index.html" style="text-decoration: none;"><span>Hombre</span></a>
+                        <svg class="svgButton">
+                            <rect x="0" y="0" fill="none" class="rectButton"></rect>
+                        </svg>
+                    </button>
+
+                </div>
+                <div class="divImage1">
+                    <img src="imagenes/under armour.webp" alt="" class="secondImage imgSection">
+                    <button class="secondButton buttonImageSection">
+                        <a href="../proyect.com/index.html" style="text-decoration: none;"><span>Mujer</span></a>
+                        <svg class="svgButton">
+                            <rect x="0" y="0" fill="none" class="rectButton"></rect>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="containTypes">
+                    <div class="typesContains">
+                        <div class="typeImg" id="accesoriosDown">
+                            <a href="">
+                                <img src="./imagenes/pexels-nappy-936094.jpg" alt="" class="imageType imgSection" width="100px">
+                                <div class="titleType running">Running</div>
+                            </a>
+                        </div>
+    
+                        <div class="typeImg">
+                            <a href="">
+                                <img src="./imagenes/pexels-anna-shvets-5069194.jpg" alt="" class="imageType imgSection" width="100px">
+                                <div class="titleType training">Training</div>
+                            </a>
+    
+                        </div>
+    
+                        <div class="typeImg">
+                            <a href="">
+                                <img src="./imagenes/pexels-pixabay-161172.jpg" alt="" class="imageType imgSection" width="100px">
+                                <div class="titleType trail">Trail</div>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </div>
+
+                <div class="swiper mySwiper">
+
+                    <h2>Lo más nuevo</h2>
+
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                          <img src="pexels-tembela-bohle-2803158.jpg" class="imagen1Notice" width="100px">
+                      </div>
+                      <div class="swiper-slide">
+                          <img src="imagenes/4b3e6f61-33c8-4e3a-9e03-cbdd83fbab3a___8357795f34140bab46cfc6d18d0a965c.webp" alt="">
+                      </div>
+                      <div class="swiper-slide">
+                          <img src="imagenes/bde0d231-a544-484b-a6f3-d40f0e703deb___08c3e7c3e10d40357e1e52cbd9ac611d.webp" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                  </div>   
+            </div>
+        </section>
+
+        <div class="containerMain">
+                <div class="containerFavicons">
+                    <div class="logos">
+                        <div class="logos-slide">
+                            <img src="imagenes/Marcas/adidas.png" />
+                            <img src="imagenes/Marcas/nike.png"/>
+                            <img src="imagenes/Marcas/puma.png" />
+                            <img src="imagenes/Marcas/skechers.png" />
+                            <img src="imagenes/Marcas/newBalance.png" />
+                            <img src="imagenes/Marcas/UnderArmourNegro.png"/>
+                            <img src="imagenes/Marcas/totto.png"/>
+                            <img src="imagenes/Marcas/tommyHilfiger.png" />
+                          </div>
+
+                        <div class="logos-slide">
+                            <img src="imagenes/Marcas/adidas.png" />
+                            <img src="imagenes/Marcas/nike.png"/>
+                            <img src="imagenes/Marcas/puma.png" />
+                            <img src="imagenes/Marcas/skechers.png" />
+                            <img src="imagenes/Marcas/newBalance.png" />
+                            <img src="imagenes/Marcas/UnderArmourNegro.png"/>
+                            <img src="imagenes/Marcas/totto.png"/>
+                            <img src="imagenes/Marcas/tommyHilfiger.png" />
+                        </div>
+                    </div>
+                </div>
+
+            <!-- <section class="containerSlides">
+
+
+                <div class="sliderImages">
+
+                    <div class="sliderImg">
+                        <img src="./imagenes/Slider/nike.jpg" alt="" width="200px">
+                        <h2 class="titleNike">Nike</h2>
+                        <div class="details">
+                            <h3>Nike</h3>
+                            <p>Nuevos estilos</p>
+                        </div>
+                    </div>
+
+                    <div class="sliderImg">
+                        <img src="./imagenes/Slider/adidas.jpeg" alt="" width="200px">
+                        <h2 class="titleAdidas">Adidas</h2>
+                        <div class="details">
+                            <h3>Adidas</h3>
+                            <p>Nuevos estilos</p>
+                        </div>
+                    </div>
+
+                    <div class="sliderImg">
+                        <img src="./imagenes/Slider/underArmourSlider.jpg" alt="" width="200px">
+                        <h2 class="titleUnderArmour">Under Armour</h2>
+                        <div class="details">
+                            <h3>Under Armour</h3>
+                            <p>Nuevos estilos</p>
+                        </div>
+                    </div>
+
+                    <div class="sliderImg">
+                        <img src="./imagenes/Slider/skechers.jpg" alt="" width="200px">
+                        <h2 class="titleSkechers"> Skechers </h2>
+                        <div class="details">
+                            <h3> Skechers </h3>
+                            <p>Nuevos estilos</p>
+                        </div>
+                    </div>
+
+                    <div class="sliderImg">
+                        <img src="./imagenes/Slider/puma.jpg" alt="" width="200px">
+                        <h2 class="titlePuma"> Puma </h2>
+                        <div class="details">
+                            <h3> Puma </h3>
+                            <p> Nuevos estilos </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section> -->
+            <section class="containerAllSecondBlock" id="comunity">
+                <div class="secondBlock">
+                    <div class="containerSecondBlock">
+                        <img src="imagenes/underArmour.jpg" alt="" width="500px" height="600px" class="firstImgBlock">
+
+                        <div class="whiteSpace">
+                            <div class="community">
+                                <h3>Unete a la <br> Comunidad</h3>
+                                <button class="register">Registrarse</button>
+                            </div>
+                        </div>
+                        <img src="imagenes/nike.jpeg" alt="" width="500px" height="600px" class="secondImgBlock">
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+    <hr>
+    <div class="culture">
+        <div class="cardCulture">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+            </svg>
+            <h3>Cultura</h3>
+            <p>Apasionados por el deporte y por darla toda de inicio a fin</p>
+
+        </div>
+        <div class="cardCulture">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path
+                    d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3V245.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5V416c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V389.2C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112h32c24 0 46.2 7.5 64.4 20.3zM448 416V394.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176h32c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2V416c0 17.7-14.3 32-32 32H480c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3V261.7c-10 11.3-16 26.1-16 42.3zm144-42.3v84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2V448c0 17.7-14.3 32-32 32H288c-17.7 0-32-14.3-32-32V405.2c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112h32c61.9 0 112 50.1 112 112z" />
+            </svg>
+            <h3>Enfoque</h3>
+            <p>Comunidad enfocada en mejorar cada dia y sacarla del estadio a punta de esfuerzo</p>
+
+        </div>
+        <div class="cardCulture">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    d="M448 256A192 192 0 1 0 64 256a192 192 0 1 0 384 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 80a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm0-224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zM224 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+            </svg>
+            <h3>Metas</h3>
+            <p>Influir positivamente en la ciudad de Medellin, vamos con toda </p>
+
+        </div>
+    </div>
+    <hr>
+    <footer class="footer">
+
+        <!-- <div class="footerSections"> -->
+        <div class="sectionFooter">
+            <ul>
+                <li>
+                    <h3>Nosotros</h3>
+                </li>
+                <li><a href="" class="footerLink">Tiendas</a></li>
+                <li><a href="" class="footerLink">Comunidad</a></li>
+                <li><a href="" class="footerLink">Unete al equipo</a></li>
+            </ul>
+        </div>
+
+        <div class="sectionFooter">
+            <ul>
+                <li>
+                    <h3>Contacto</h3>
+                </li>
+                <li><a href="" class="footerLink">+57 3232936353</a></li>
+                <li><a href="" class="footerLink">PBX: 1231414453</a></li>
+                <li><a href="" class="footerLink">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="sectionFooter">
+            <ul>
+                <li>
+                    <h3>Quienes Somos</h3>
+                </li>
+                <li><a href="" class="footerLink">Cultura</a></li>
+                <li><a href="" class="footerLink">Comunidad</a></li>
+                <li><a href="" class="footerLink">Mundo Essential</a></li>
+            </ul>
+        </div>
+        <div class="socialMedia sectionFooter">
+            <h3>Siguenos</h3>
+            <div class="socialMediaImage">
+                <img src="imagenes/Marcas/instagram.png" alt="Instagram" width="20px">
+                <img src="imagenes/Marcas/tik-tok.png" alt="Tiktok" width="20px">
+                <img src="imagenes/Marcas/linkedin.png" alt="Linkedin" width="20px">
+            </div>
+
+        </div>
+        <!-- </div> -->
+
+    </footer>
+
+    <div class="footerDown">
+        <div class="terms">
+            <a href="">
+                <h3>Terminos y condiciones</h3>
+            </a>
+            <p>|</p>
+            <a href="">
+                <h3>Politica de Privacidad</h3>
+            </a>
+            <p>|</p>
+            <a href="">
+                <h3>Superintendencia</h3>
+            </a>
+        </div>
+        <div class="copyrightDiv">
+            <h4 class="copyright">&copy; 2024 Essential Shoes</h4>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js" type="module"></script>
+    <script src="login.js"></script>
+    <script src="database.js" type="module"></script>
+
+</body>
+
+</html>
