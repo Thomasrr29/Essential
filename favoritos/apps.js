@@ -126,6 +126,9 @@ async function cargarProductos() {
 	const contenedor = document.querySelector(".container-products")
 	const productos = await getProducts()
 	productos.forEach (producto => {
+		const genero = localStorage.getItem("genero")
+		console.log(genero);
+		if(producto.genero == genero){
 		contenedor.innerHTML += `
 		<div class="card-product">
 			<div class="container-img">
@@ -240,6 +243,7 @@ async function cargarProductos() {
 		})
 	})
 	showHtml()  
+	}
   	})
 }
 

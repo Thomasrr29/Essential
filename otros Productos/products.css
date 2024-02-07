@@ -89,6 +89,7 @@ body {
     color: #fff;
   }
 
+
   .options {
     position: absolute;
     top: 100%;
@@ -101,11 +102,22 @@ body {
     background-color: #fff;
   }
 
-  .custom-select:hover .options {
-    display: block;
+ 
+  .options h2{
+    text-align: center;
+    margin: 5px;
+    font-size: 17px;
+    border-bottom: 2px solid black; 
+}
+
+.custom-select:hover .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
   }
 
+  
   .options a {
     display: block;
     padding: 10px;
