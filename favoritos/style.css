@@ -458,3 +458,11 @@ header a {
 .visible {
   display: block;
 }
+
+.comprar{
+	padding: 10px;
+	background-color: aqua;
+	border-radius: 4px;
+	transition-duration: 1s;
+	cursor: pointer;
+}

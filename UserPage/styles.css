@@ -416,26 +416,35 @@ header .navToggle {
     cursor: pointer;
 }
 
+
 .tablePedidos {
 
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    background: #fff;
+}
+
+.tablePedidos tr th{
+    border: solid 2px black;
+    text-align: center;
+}
+
+.tablePedidos tr td{
+    border: solid 2px black;
+    text-align: center;
 }
 
 
 .titlePedidos {
 
-    background: #fff;
     margin-bottom: 2rem;
-    border-radius: 3rem;
     padding: 2rem;
 }
 
 .tablePedidos td {
 
     width: auto;
-    border-radius: 2rem;
 }
 
 .tdImage {

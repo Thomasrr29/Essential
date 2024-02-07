@@ -103,7 +103,25 @@ async function validarMostrar(deseo) {
 		
 		const p = document.createElement("p")
 		p.innerHTML = "Total: " +  totalPagar.toLocaleString()
+		const button = document.createElement("button")
+		button.textContent = "realizar compra"
+		button.classList.add("comprar")
 		listFavorites.appendChild(p)
+		listFavorites.appendChild(button)
+
+		const comprar = document.querySelector(".comprar")
+		comprar.addEventListener("click", ()=>{
+		if(carrito.length > 0){
+		
+				window.location = "carrito.html"
+		
+			return
+		}
+		Swal.fire({
+            text: "El carrito esta vacio",
+            icon: "error"
+          });
+		})
 		
 	}
 }

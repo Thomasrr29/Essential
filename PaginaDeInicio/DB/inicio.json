@@ -30,5 +30,63 @@
       "email": "ahorasi@gmail.com",
       "password": "123"
     }
+  ],
+  "pedidos": [
+    {
+      "id": "8150600",
+      "referencia": "Skechers, ",
+      "total": 180,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "8954629",
+      "referencia": "Skechers, Skechers-W1, Ascis Running, ",
+      "total": 639,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "9064887",
+      "referencia": "Ascis Running, Skechers, Skechers-W1, Skechers, ",
+      "total": 1008,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "9194520",
+      "referencia": "Skechers, Skechers-W1, Adidas Duramo SL, ",
+      "total": 808,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "9223418",
+      "referencia": "Ascis Running, Skechers, ",
+      "total": 380,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "0082803",
+      "referencia": "Ascis Running, Skechers, ",
+      "total": 380,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    },
+    {
+      "id": "3276978",
+      "referencia": "Adidas Response, Under Armour Assert, Under Armour Assert, ",
+      "total": 877,
+      "fecha": "6/2/2024",
+      "estado": "despachado",
+      "puntos": "+100"
+    }
   ]
 }

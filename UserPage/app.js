@@ -1,4 +1,5 @@
 import { getData } from "../PaginaDeInicio/connection/api.js"
+import { getFavorites } from "../favoritos/connection/api.js"
 
 const datos = await getData()
 
@@ -141,3 +142,28 @@ function comprobarSesion(){
     }
 
 }
+
+
+
+async function cargarPedidos(){
+    let urlPedido = "http://localhost:4002/pedidos"
+
+    const pedidos = await getFavorites(urlPedido)
+    const tbody = document.querySelector("#rellenarPedidos")
+    pedidos.forEach(pedido =>{
+        const{id,referencia,total,fecha,estado,puntos} = pedido
+        const tr = document.createElement("tr")
+        tr.innerHTML = `
+        <td>${id}</td>
+        <td>${fecha}</td>
+        <td>${total}</td>
+        <td>${referencia}</td>
+        <td>${estado}</td>
+        <td>${puntos}</td>
+    `
+    tbody.appendChild(tr)
+    })
+}
+
+
+cargarPedidos()
