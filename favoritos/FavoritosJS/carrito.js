@@ -1,10 +1,7 @@
-import { getFavorites } from "./connection/api.js"
-import { getData } from "../PaginaDeInicio/connection/api.js"
-
-
+import { getFavorites } from "../connection/api.js"
+import { getData } from "../../PaginaDeInicio/connection/api.js"
 
 //codigo exotico xd
-
 
 let url = "http://localhost:4003/carrito"
 let totalPagar = 0
@@ -98,11 +95,7 @@ async function limpiarCarrito() {
             method: 'DELETE',
         })
     })
-
 }
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarCarrito()

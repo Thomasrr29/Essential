@@ -25,7 +25,7 @@ body {
 
     display: flex;
     justify-content: center;
-    background-color: rgb(255, 132, 0);
+    background-color: rgb(84, 98, 107);
     width: 100%;
     color: white;
     font-size: 1.5rem;
@@ -35,6 +35,7 @@ body {
 .header {
 
     width: 100%;
+    background-color: rgb(0, 123, 255);
 }
 
 
@@ -244,25 +245,27 @@ main {
 .footer {
 
     display: flex;
-    padding: 2rem 0;
     justify-content: space-around;
-    margin-top: 10rem;
-    background-color: rgb(255, 115, 0);
+    width: 60%;
+    margin: 20rem auto auto auto;
 
+}
+
+.sectionFooter a{
+
+    font-size: 1.2rem;
 }
 
 .footer li {
 
     display: flex;
     flex-direction: column;
-    color: black;
-    margin: 1rem;
-
+    margin: 0.5rem;
 }
 
 .footerLink:hover {
 
-    color: black;
+    color: orange;
 }
 
 .footer img {
@@ -273,13 +276,49 @@ main {
 .footer a {
 
     text-decoration: none;
-    color: white;
-    
+    color: black;
+}
+
+.footerDown {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.footerDown h3 {
+
+    font-size: 1.2rem;
+}
+
+.footerDown .terms {
+
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footerDown .terms a {
+
+    text-decoration: none;
+    color: black;
+}
+
+.copyrightDiv {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .copyright{
 
-   text-align: end;
-   background-color:  rgb(255, 115, 0);
-   padding: 1rem 2rem;
+
+   width: auto;
+   margin: 2rem;
+   font-size: 1rem;
 }

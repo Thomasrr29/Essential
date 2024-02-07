@@ -1,5 +1,6 @@
-import { getProducts, guardarFavoritos, getFavorites, guardarCarrito } from "./connection/api.js";
+import { getProducts, guardarFavoritos, getFavorites, guardarCarrito} from "../connection/api.js";
 import{cargarComparados} from "./favoritos.js"
+
 
 const counterFavorites = document.querySelector('.counter-favorite');
 const btnClose = document.querySelector('#btn-close');
@@ -52,9 +53,7 @@ const showHtml = async () => {
 const enviarDatos = (product) => {
 	let url = "http://localhost:4001/favoritos"
 	guardarFavoritos(url, product)
-
 	showHtml()
-
 };
 
 const enviarCarrito = (product) => {
@@ -90,13 +89,13 @@ async function validarMostrar(deseo) {
 		const carrito = await getFavorites(url2)
 		console.log(carrito)
 		carrito.forEach(elemento => {
-			const { img, title, price } = elemento
-			totalPagar += parseInt(price)
+			const { imagen, nombre, precio } = elemento
+			totalPagar += parseInt(precio)
 			listFavorites.innerHTML += `
 		<div class="card-favorite">
-		<img src="${img}" width="40px">
-		<p class="title">${title}</p>
-		<p>${price}</p>
+		<img src="../sneakers/${imagen}" width="40px">
+		<p class="title">${nombre}</p>
+		<p>${precio}</p>
 	  </div> 
 		`
 		})
@@ -145,22 +144,22 @@ async function cargarProductos() {
 	const productos = await getProducts()
 	productos.forEach (producto => {
 		contenedor.innerHTML += `
-		<div class="card-product">
-			<div class="container-img">
-			<img src="../sneakers/${producto.imagen}" alt="imagen Producto" />
+		<div class="card-product" ids=${producto.id} >
+			<div class="container-img" ids=${producto.id}>
+			<img src="../sneakers/${producto.imagen}" alt="imagen Producto" ids="${producto.id}"/>
 			<img src='images/cuadricula.png' class='comparison' ids=${producto.id}>
 			</div>
-			<div class="content-card-product" data-product-id="1">
-			<h3>${producto.nombre}</h3>
-			<p>${producto.detalles}</p>
-			<div class="footer-card-product">
-				<p class="priceParent">$<span class="price">${producto.precio}</span></p>
+			<div class="content-card-product" ids=${producto.id} >
+			<h3 ids=${producto.id}>${producto.nombre}</h3>
+			<p ids=${producto.id}>${producto.detalles}</p>
+			<div class="footer-card-product" ids=${producto.id}>
+				<p class="priceParent" ids=${producto.id}>$<span class="price" ids=${producto.id}>${producto.precio}</span></p>
 
-				<div class="container-buttons-card">
+				<div class="container-buttons-card" ids=${producto.id}>
 
-					<i class="fa-regular fa-heart" id="favorite-regular" idProducto=${producto.id}></i>
+					<i class="fa-regular fa-heart" id="favorite-regular" idProducto= ${producto.id} ids=${producto.id}></i>
 			
-					<i class="fa-solid fa-bag-shopping" id="carrito" idProducto=${producto.id}></i>
+					<i class="fa-solid fa-bag-shopping" id="carrito" idProducto= ${producto.id} ids=${producto.id}></i>
 
 			</div>
 		  </div>
@@ -206,7 +205,7 @@ async function cargarProductos() {
 	});
 
 	btnsCarrito.forEach(button => {
-		button.addEventListener("click", async e => {
+		button.addEventListener("click", async (e) => {
 			const idProducto = e.target.getAttribute("idProducto")
 			const card = e.target.closest('.card-product');
 			const product = {
@@ -252,8 +251,14 @@ async function cargarProductos() {
 	})
 
 	const cardProduct = document.querySelectorAll('.card-product')
+
 	cardProduct.forEach((e) => {
-		e.addEventListener('click', () => {
+		e.addEventListener('click', (e) => {
+
+			let id = e.target.getAttribute('ids')
+			cargarProducto(id)
+
+			window.location = '../Pagina producto/producto.html'
 			
 		})
 	})
@@ -274,4 +279,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	cargarComparados(urlComparison)
 })
 
+async function cargarProducto (id){
 
+    let productos = await fetch(urlProductos)
+    let producto = await productos.json()
+    const semejanza = producto.filter((product) => (product.id == id))
+    localStorage.setItem('ProductClick', JSON.stringify(semejanza))
+ 
+}

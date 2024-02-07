@@ -1,16 +1,7 @@
-import { getFavorites } from "./connection/api.js";
+import { getFavorites } from "../connection/api.js";
 
 
 let url = "http://localhost:4004/comparados"
-const closeButton = document.querySelector('.close-button')
-
-closeButton.addEventListener('click', () => {
-  const comparisonProducts = document.querySelector('.comparisonProducts')
-  comparisonProducts.style.display = 'none'
-
-  borrar()
-
-})
 
 async function borrar() {
 
@@ -29,14 +20,12 @@ async function borrar() {
     }
 
   })
-
 }
 
 export async function cargarComparados(url){
 
 	const comparison = document.querySelector('.comparisonProducts')
     
-	
 		let comparados = await getFavorites(url)
 
 		comparados.forEach((comparate) => {
@@ -62,6 +51,16 @@ export async function cargarComparados(url){
       if(comparados.length == 2){
 
         comparison.style.display = 'flex'
+
+        const closeButton = document.querySelector('.close-button')
+
+        closeButton.addEventListener('click', () => {
+          const comparisonProducts = document.querySelector('.comparisonProducts')
+          comparisonProducts.style.display = 'none'
+
+          borrar()
+
+        })
       }
 
 		
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     categoriaDropdown.addEventListener('click', () => {
       toggleDropdown(categorias);
       arrowCategory.classList.toggle('rotate')
-
     });
   
     tallaDropdown.addEventListener('click', () => {

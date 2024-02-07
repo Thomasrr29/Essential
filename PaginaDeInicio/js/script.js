@@ -1,4 +1,4 @@
-import {getData} from "./connection/api.js"
+import {getData} from "../connection/api.js"
 const usuarios = await getData()
 
 const segundoBloque = document.querySelector('.containerAllSecondBlock')

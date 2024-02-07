@@ -1,4 +1,4 @@
-import {getData,sendData} from "./connection/api.js"
+import {getData,sendData} from "../connection/api.js"
 
 const btn_login = document.querySelector(".login")
 const btn_register = document.querySelector(".register")

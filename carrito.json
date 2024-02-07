@@ -1,3 +1,55 @@
 {
-  "carrito": []
+  "carrito": [
+    {
+      "id": "2",
+      "imagen": "NIKE1W_Flex.png",
+      "nombre": "Nike Flex Experience",
+      "detalles": "Running",
+      "precio": "332.000",
+      "genero": "Mujer",
+      "marca": "Nike",
+      "categoria": "Running",
+      "tallas": [
+        "7",
+        "7.5",
+        "9.5",
+        "10"
+      ],
+      "descripcion": "Experimenta la versatilidad en cada paso con los Nike Flex Experience. Estos tenis están diseñados para corredores que valoran la flexibilidad y la agilidad. Su suela se adapta naturalmente a tus movimientos, mientras que su diseño elegante y moderno no solo potencia tu rendimiento sino que también eleva tu estilo."
+    },
+    {
+      "id": "2",
+      "imagen": "NIKE1W_Flex.png",
+      "nombre": "Nike Flex Experience",
+      "detalles": "Running",
+      "precio": "332.000",
+      "genero": "Mujer",
+      "marca": "Nike",
+      "categoria": "Running",
+      "tallas": [
+        "7",
+        "7.5",
+        "9.5",
+        "10"
+      ],
+      "descripcion": "Experimenta la versatilidad en cada paso con los Nike Flex Experience. Estos tenis están diseñados para corredores que valoran la flexibilidad y la agilidad. Su suela se adapta naturalmente a tus movimientos, mientras que su diseño elegante y moderno no solo potencia tu rendimiento sino que también eleva tu estilo."
+    },
+    {
+      "id": "3",
+      "imagen": "NIKE2W_Pegasus.png",
+      "nombre": "Nike Pegasus",
+      "detalles": "Running",
+      "precio": "259.900",
+      "genero": "Mujer",
+      "marca": "Nike",
+      "categoria": "Running",
+      "tallas": [
+        "6.5",
+        "8.5",
+        "9.5",
+        "10"
+      ],
+      "descripcion": "Los Nike Pegasus reinventan el clásico con tecnología avanzada. Equipados con la amortiguación Air Zoom, ofrecen una sensación de respuesta y suavidad incomparable. Estos tenis logran un equilibrio perfecto entre amortiguación y velocidad, convirtiéndolos en la elección ideal para corredores que buscan excelencia en cada carrera."
+    }
+  ]
 }
