@@ -26,6 +26,16 @@ function guardarUsuario(e){
             email,
             password
         }
+
+        setTimeout(()=>{
+            sendData(newUser)
+    
+            document.querySelector("#username").value = "";
+            document.querySelector("#email").value = "";
+            document.querySelector("#password").value = "";
+            document.querySelector("#confirm").value = "";
+        }, 2000)
+
         Swal.fire({
             title: "Te has registrado con exito",
             text: "Bienvenido a la familia essential shoes",
@@ -40,12 +50,7 @@ function guardarUsuario(e){
           `,
           });
           
-          sendData(newUser)
-    
-          document.querySelector("#username").value = "";
-          document.querySelector("#email").value = "";
-          document.querySelector("#password").value = "";
-          document.querySelector("#confirm").value = "";
+
     
     }else{
         Swal.fire({

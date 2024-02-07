@@ -1,4 +1,4 @@
-let url = "http://localhost:4002/usuarios"
+let url = "http://localhost:4005/usuarios"
 
 export const getData = async () => {
     try {

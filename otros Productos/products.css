@@ -25,7 +25,7 @@ body {
 
     display: flex;
     justify-content: center;
-    background-color: rgb(84, 98, 107);
+    background-color: rgb(47, 57, 63);
     width: 100%;
     color: white;
     font-size: 1.5rem;
@@ -35,7 +35,7 @@ body {
 .header {
 
     width: 100%;
-    background-color: rgb(0, 123, 255);
+    background-color: rgb(0, 58, 120);
 }
 
 
@@ -44,7 +44,8 @@ body {
 }
 
 .navBar ul li a{
-    color: black;
+    color: rgb(255, 255, 255);
+    font-weight: 480;
     line-height: 2;
     position: relative;
 }
@@ -90,7 +91,6 @@ body {
     color: #fff;
   }
 
-
   .options {
     position: absolute;
     top: 100%;
@@ -103,27 +103,16 @@ body {
     background-color: #fff;
   }
 
- 
-  .options h2{
-    text-align: center;
-    margin: 5px;
-    font-size: 17px;
-    border-bottom: 2px solid black; 
-}
-
-.custom-select:hover .options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .custom-select:hover .options {
+    display: block;
     flex-direction: column;
   }
 
-  
   .options a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #333;
+    color: #353535;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -183,7 +172,7 @@ header .navToggle {
 
 .navLink:hover {
 
-    color: rgb(255, 149, 0);
+    color: rgb(46, 63, 82);
 }
 
 .header hr {
@@ -257,9 +246,13 @@ main {
 .footer {
 
     display: flex;
-    justify-content: space-around;
-    width: 60%;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
     margin: 20rem auto auto auto;
+    padding: 5rem;
+    background-color: rgb(47, 57, 63);
 
 }
 
@@ -275,9 +268,15 @@ main {
     margin: 0.5rem;
 }
 
+.footer h3 {
+
+    color: white;
+    margin: 2rem 0;
+}
+
 .footerLink:hover {
 
-    color: orange;
+    color: rgb(52, 52, 52);
 }
 
 .footer img {
@@ -288,7 +287,8 @@ main {
 .footer a {
 
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    font-weight: 510;
 }
 
 .footerDown {

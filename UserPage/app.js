@@ -146,7 +146,7 @@ function comprobarSesion(){
 
 
 async function cargarPedidos(){
-    let urlPedido = "http://localhost:4002/pedidos"
+    let urlPedido = "http://localhost:4005/pedidos"
 
     const pedidos = await getFavorites(urlPedido)
     const tbody = document.querySelector("#rellenarPedidos")

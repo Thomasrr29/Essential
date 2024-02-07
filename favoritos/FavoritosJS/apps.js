@@ -88,13 +88,13 @@ async function validarMostrar(deseo) {
 		listFavorites.innerHTML = ""
 		let url2 = "http://localhost:4003/carrito"
 		const carrito = await getFavorites(url2)
-		console.log(carrito)
+		console.log("hola", carrito)
 		carrito.forEach(elemento => {
 			const { imagen, nombre, precio } = elemento
 			totalPagar += parseInt(precio)
 			listFavorites.innerHTML += `
 		<div class="card-favorite">
-		<img src="../sneakers/${imagen}" width="40px">
+		<img src="${imagen}" width="40px">
 		<p class="title">${nombre}</p>
 		<p>${precio}</p>
 	  </div> 
@@ -151,6 +151,7 @@ async function cargarProductos() {
 		if(producto.genero == genero){
 		contenedor.innerHTML += `
 		<div class="card-product" ids=${producto.id} >
+			
 			<div class="container-img" ids=${producto.id}>
 			<img src="../sneakers/${producto.imagen}" alt="imagen Producto" ids="${producto.id}"/>
 			<img src='images/cuadricula.png' class='comparison' ids=${producto.id}>
@@ -165,10 +166,10 @@ async function cargarProductos() {
 
 					<i class="fa-regular fa-heart" id="favorite-regular" idProducto= ${producto.id} ids=${producto.id}></i>
 			
-					<i class="fa-solid fa-bag-shopping" id="carrito" idProducto= ${producto.id} ids=${producto.id}></i>
+					<i class="fa-solid fa-bag-shopping" id="carrito"  idProducto= ${producto.id} ids=${producto.id}></i>
 
-			</div>
-		  </div>
+				</div>
+		  	</div>
 		</div>`
 
 	const btnsFavorite = document.querySelectorAll('#favorite-regular');
@@ -216,9 +217,9 @@ async function cargarProductos() {
 			const card = e.target.closest('.card-product');
 			const product = {
 				id: idProducto,
-				img: card.querySelector('img').src,
-				title: card.querySelector('h3').textContent,
-				price: card.querySelector('.price').textContent,
+				imagen: card.querySelector('img').src,
+				nombre: card.querySelector('h3').textContent,
+				precio: card.querySelector('.price').textContent,
 			};
 
 			enviarCarrito(product);
@@ -250,15 +251,17 @@ async function cargarProductos() {
 
 						imagen: `${igual.imagen}`,
 						nombre: `${igual.nombre}`,
-						detalles: `${igual.detalles}`
+						detalles: `${igual.detalles}`,
+						precio: `${igual.precio}`
 					}
+
 					guardarFavoritos(urlComparison, producto)
 				}
 			})	
 		})		
 	})
 
-	const cardProduct = document.querySelectorAll('.card-product')
+	const cardProduct = document.querySelectorAll('.card-product h3')
 
 	cardProduct.forEach((e) => {
 		e.addEventListener('click', (e) => {

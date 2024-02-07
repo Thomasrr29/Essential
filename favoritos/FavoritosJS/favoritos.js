@@ -33,13 +33,15 @@ export async function cargarComparados(url){
 			comparated.classList.add('firstProduct')
 
 
-			const {imagen, nombre, detalles} = comparate
+			const {imagen, nombre, detalles, precio} = comparate
 
 					comparated.innerHTML = `
 						<img src='../sneakers/${imagen}'>
 						<div class='infoComparison'>
 							<h3>${nombre}</h3>
 							<p>${detalles}</p>
+              <p>${precio}</p>
+
 						</div>
 						<div class='footerComparison'>
 							<a> Agregar Carrito </a>

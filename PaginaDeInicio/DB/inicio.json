@@ -29,6 +29,18 @@
       "username": "ahorasi",
       "email": "ahorasi@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "6ea2",
+      "username": "si",
+      "email": "si@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "99c6",
+      "username": "funciona",
+      "email": "funciona@gmail.com",
+      "password": "123"
     }
   ],
   "pedidos": [

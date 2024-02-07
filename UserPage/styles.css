@@ -23,19 +23,21 @@ body {
     position: relative;
 }
 
-.announcements {
+/* .announcements {
 
     display: flex;
     justify-content: center;
-    background-color: #ff6200;
+    background-color: #008cff;
     width: 100%;
     color: white;
     font-size: 1.5rem;
     font-weight: bolder;
-}
+} */
 
 .header {
     width: 100%;
+    background-color: rgb(0, 58, 120);
+    
 }
 
 .buscador{
@@ -44,7 +46,7 @@ body {
 
 .navBar ul li a{
 
-    color: black;
+    color: rgb(255, 255, 255);
     line-height: 2;
     position: relative;
 }
@@ -178,7 +180,7 @@ header .navToggle {
 
 .navLink:hover {
 
-    color: #ff6200;
+    color: #000000;
 }
 
 .headerHr {
@@ -205,11 +207,11 @@ header .navToggle {
     font-size: 2rem;
 }
 
-.headerTitle {
+/* .headerTitle {
 
     width: 100%;
     background-color: #ff6200;
-}
+} */
 
 .headerTitle p {
 
@@ -364,7 +366,7 @@ header .navToggle {
 
 .datosData {
 
-    background-color: #dee8f3;
+    background-color: rgb(0, 58, 120);
     margin-top: 2rem;
     padding: 5rem 0;
     border-radius: 2rem;
@@ -423,16 +425,19 @@ header .navToggle {
     border-collapse: separate;
     border-spacing: 0;
     background: #fff;
+    border-radius: 5px;
 }
 
 .tablePedidos tr th{
     border: solid 2px black;
     text-align: center;
+
 }
 
 .tablePedidos tr td{
     border: solid 2px black;
     text-align: center;
+ 
 }
 
 

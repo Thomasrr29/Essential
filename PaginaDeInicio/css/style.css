@@ -32,18 +32,18 @@ body {
 }
 
 .header {
-
     width: 100%;
-
+    background-color: rgb(0, 58, 120);
 }
-
 
 .buscador{
     display: none;
+    border-radius: 1rem;
+    border: none;
 }
 
 .navBar ul li a{
-    color: black;
+    color: rgb(255, 255, 255);
     line-height: 2;
     position: relative;
 }
@@ -92,7 +92,6 @@ body {
     width: 20rem;
     z-index: 1;
     display: none;
-    border: 1px solid #ccc;
     background-color: #fff;
 }
 
@@ -149,8 +148,7 @@ body {
     color: black;
     font-size: 1.6rem;
     font-weight: 800;
-    margin: 1.5rem;
-    
+    margin: 1.5rem; 
 }
 
 header .user {
@@ -182,12 +180,6 @@ header .navToggle {
 
     display: flex;
     flex-direction: column;
-}
-
-.imageSection img {
-
-    border: 2px solid #ccc;
-    
 }
 
 .twoImages {
@@ -309,11 +301,6 @@ header .navToggle {
     width: 100%;
 }
 
-.buttonImageSection{
-
-    background-color: rgb(0, 132, 255);
-
-}
 
 .firstButton {
 
@@ -357,11 +344,11 @@ header .navToggle {
     justify-content: center;
     align-items: center;
     padding: 4rem 10rem;
-    border-radius: 1rem;
     font-size: 2rem;
     border:none;
     font-size: 2.5rem;
     font-weight: bolder;
+    background-color: rgb(0, 58, 120);
 
 }
 
@@ -384,7 +371,7 @@ header .navToggle {
 
     width: 100%;
     height: 100%;
-    stroke: rgb(34, 35, 40);
+    stroke: rgb(255, 255, 255);
     stroke-width: 6px;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
@@ -681,7 +668,9 @@ header .navToggle {
 .whiteSpace .register {
 
     border: none;
-    background: #53b2ff;
+    background-color: rgb(0, 58, 120);
+    color: white;
+    
 }
 
 .whiteSpace .register:hover {
@@ -729,15 +718,25 @@ header .navToggle {
 .footer {
 
     display: flex;
-    justify-content: space-around;
-    width: 60%;
-    margin: 5rem auto auto auto;
-
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    background-color: rgb(0, 58, 120);
+    width: 100%;
+    padding: 6rem;
 }
+
+.footer h3 {
+
+    color: white;
+    margin: 2rem 0;
+}
+
 
 .sectionFooter a{
 
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+
 }
 
 .footer li {
@@ -749,7 +748,7 @@ header .navToggle {
 
 .footerLink:hover {
 
-    color: orange;
+    color: rgb(0, 0, 0);
 }
 
 .footer img {
@@ -760,7 +759,7 @@ header .navToggle {
 .footer a {
 
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .footerDown {
