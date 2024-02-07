@@ -100,4 +100,21 @@ let swiper = new Swiper(".mySwiper", {
 //     comprobarSesion()
 // })
 
+
+
+const filtroHombre = document.querySelector("#filtroHombre")
+const filtroMujer = document.querySelector("#filtroMujer")
+console.log(filtroHombre);
+
+
+    filtroHombre.addEventListener("click", (e)=>{
+        localStorage.setItem("genero", e.target.getAttribute("genero")) 
+    })
+
+    filtroMujer.addEventListener("click", (e)=>{
+
+        localStorage.setItem("genero", e.target.getAttribute("genero")) 
+    })
+
+    
 comprobarSesion()
