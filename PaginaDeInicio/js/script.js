@@ -37,7 +37,7 @@ const handleScroll = () => {
 document.addEventListener('scroll', handleScroll)
 
 buscar.addEventListener("click", () =>{
-   
+    //Que el icono de buscar salga 
     if(search.classList.contains("activo")){
         search.style.display = "none"
         search.classList.remove("activo")
@@ -52,7 +52,7 @@ function comprobarSesion(){
     const options = document.querySelector(".options")
     const sesion = JSON.parse(localStorage.getItem("sesion")) || ""
     // const usuarios = JSON.parse(localStorage.getItem("registros")) || []
-    
+    //Validación inicio de sesión
     const validacion = usuarios.some(usuario => usuario.email == sesion.usuario)
     console.log(usuarios)
     console.log(validacion);
@@ -83,6 +83,7 @@ function comprobarSesion(){
 
 }
 
+//Swiper
 let swiper = new Swiper(".mySwiper", {
     pagination: {
       el: ".swiper-pagination",

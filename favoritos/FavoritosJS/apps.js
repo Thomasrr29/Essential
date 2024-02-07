@@ -50,6 +50,7 @@ const showHtml = async () => {
 
 }
 
+//Enviar favoritos 
 const enviarDatos = (product) => {
 	let url = "http://localhost:4001/favoritos"
 	guardarFavoritos(url, product)
@@ -61,7 +62,7 @@ const enviarCarrito = (product) => {
 	guardarCarrito(url, product)
 
 }
-
+//Mostrar en los favoritos 
 async function validarMostrar(deseo) {
 	const favorito_carrito = document.querySelector(".favorito-carrito")
 	let url = "http://localhost:4001/favoritos"
@@ -82,7 +83,7 @@ async function validarMostrar(deseo) {
 		})
 
 	} else if (deseo == "carrito") {
-		
+		//Carrito
 		favorito_carrito.textContent = "Tu carrito"
 		listFavorites.innerHTML = ""
 		let url2 = "http://localhost:4003/carrito"
@@ -139,6 +140,8 @@ btnClose.addEventListener('click', () => {
 	containerListFavorites.classList.remove('show');
 });
 
+
+//Cargar productos del JSON
 async function cargarProductos() {
 	const contenedor = document.querySelector(".container-products")
 	const productos = await getProducts()
@@ -220,6 +223,8 @@ async function cargarProductos() {
 		
 		})
 	})
+
+	//Contenedor comparativo 
 	const comparisonContainer = document.querySelectorAll('.comparison')
 	comparisonContainer.forEach((boton) => {
 		  

@@ -7,7 +7,7 @@ const contenedorRegister = document.querySelector(".register")
 const contenedorLogin = document.querySelector(".login")
 const cerrar = document.querySelector(".cerrar")
 
-
+//Desplegar iniciar y registrarse
 login.addEventListener("click", mostrarLogin)
 register.addEventListener("click", mostrarRegister)
 cerrar.addEventListener("click", ()=>{

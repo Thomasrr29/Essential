@@ -23,7 +23,7 @@ let swiper = new Swiper(".carouselContent ", {
 },
 
 });
-
+//Estrellas de reseñas
 stars.forEach(function(star, index) {
     star.addEventListener('click', () => {
         for(i = 0; i<=index; i++ ){
@@ -184,12 +184,15 @@ async function cargar(url){
         console.log(error)
     }
 }
-          
+
+//Numero aleatorio para recomendados
 function numeroAleatorio (){
 
     return Math.floor( Math.random() * (28 - 1 + 1)) + 1;  
 }
 
+
+//Cargar producto seleccionado
 function cargarPrincipal(){
     const principal = JSON.parse(localStorage.getItem('ProductClick'))
     const containerProduct = document.querySelector('.containerProduct')
@@ -245,7 +248,7 @@ function cargarPrincipal(){
         </div>
     </div>`
 
-
+//Agregar todas las tallas disponibles en el JSON
         tallas.forEach((tallo) => {
         const tallasContain = document.querySelector('.tallas')
         const talla = document.createElement('div')
@@ -264,7 +267,7 @@ function cargarPrincipal(){
             e.classList.toggle('active')
         })
     })
-
+    //Agregar cuando le de click añadir al carrito a el JSON
     const buttonCart = document.querySelector('.Cart')
         buttonCart.addEventListener('click', () => {
             let sneakers = JSON.parse(localStorage.getItem('ProductClick'))
