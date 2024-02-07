@@ -1,28 +1,22 @@
 {
   "carrito": [
     {
-      "id": "1",
-      "img": "http://127.0.0.1:5500/favoritos/images/ascisRunning.png",
-      "title": "Ascis Running",
-      "price": "200.000"
+      "id": "2",
+      "img": "http://127.0.0.1:5500/sneakers/NIKE1W_Flex.png",
+      "title": "Nike Flex Experience",
+      "price": "332.000"
     },
     {
       "id": "3",
-      "img": "http://127.0.0.1:5500/favoritos/images/skechersWalker.webp",
-      "title": "Skechers-W1",
+      "img": "http://127.0.0.1:5500/sneakers/NIKE2W_Pegasus.png",
+      "title": "Nike Pegasus",
       "price": "259.900"
     },
     {
-      "id": "2",
-      "img": "http://127.0.0.1:5500/favoritos/images/skecher.jpg",
-      "title": "Skechers",
-      "price": "180.000"
-    },
-    {
-      "id": "1",
-      "img": "http://127.0.0.1:5500/favoritos/images/ascisRunning.png",
-      "title": "Ascis Running",
-      "price": "200.000"
+      "id": "19",
+      "img": "http://127.0.0.1:5500/sneakers/underAssert.avif",
+      "title": "Under Armour Assert",
+      "price": "329.900"
     }
   ]
 }

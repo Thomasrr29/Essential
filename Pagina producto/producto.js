@@ -1,5 +1,4 @@
 
-
 const stars = document.querySelectorAll('.star')
 const formulario = document.querySelector('.reviewTest')
 const botonReview = document.querySelector('.reviewButton')
@@ -9,6 +8,7 @@ let useValue;
 let sizeValue;
 let expectValue;
 let url = 'http://localhost:4002/resenas'
+let urlProductos = 'http://localhost:4000/productos'
 
 let swiper = new Swiper(".carouselContent ", {
 
@@ -118,3 +118,70 @@ formulario.addEventListener('submit', async (e) => {
 
         }
 })
+
+document.addEventListener('DOMContentLoaded', cargarRecomendacion)
+
+
+async function cargarRecomendacion (){
+
+    const cardWrapper = document.querySelector('.cardWrapper')
+
+    while(cardWrapper.children.length < 8){
+
+        try{
+            let productosAleatorios = await cargar(urlProductos)
+            
+            
+            productosAleatorios.forEach((e) => {
+    
+                numero = numeroAleatorio()
+
+                if (e.id == numero){
+
+                    const cardCarousel = document.createElement('div')
+                    cardCarousel.classList.add('cardCarousel')
+                    cardCarousel.classList.add('swiper-slide')
+        
+                    cardCarousel.innerHTML = `
+                        <div class="cardContentImage">
+                            <span class="overlay"></span>
+                            <div class="cardImageCar">
+                                <img src="../sneakers/${e.imagen}" alt="" class="cardImg">
+                            </div>
+                        </div>
+                        <div class="cardContent">
+                            <h2>${e.nombre}</h2>
+                            <h4>${e.detalles}</h4>
+                            <p>$${e.precio}</p>
+                            <div class="buttonsCard">
+                                <button class="button">Comprar</button>
+                            </div>
+                        </div>`
+        
+                    console.log(cardCarousel)
+                    cardWrapper.appendChild(cardCarousel)
+                }  
+            
+            })
+        } catch(error){
+            console.log(error)
+        }           
+    }
+}
+
+
+async function cargar(url){
+    try{
+        const productos = await fetch(urlProductos);  
+        const daticos = await productos.json()
+        
+        return daticos
+    } catch(error){
+        console.log(error)
+    }
+}
+          
+function numeroAleatorio (){
+
+    return Math.floor( Math.random() * (28 - 1 + 1)) + 1;  
+}

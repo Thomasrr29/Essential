@@ -1,12 +1,16 @@
 import { getProducts, guardarFavoritos, getFavorites, guardarCarrito } from "./connection/api.js";
-
+import{cargarComparados} from "./favoritos.js"
 
 const counterFavorites = document.querySelector('.counter-favorite');
-
+const btnClose = document.querySelector('#btn-close');
+const buttonHeaderFavorite = document.querySelector('#button-header-favorite');
+const buttonHeaderCarrito = document.querySelector("#button-header-carrito")
 const containerListFavorites = document.querySelector('.container-list-favorites');
 const listFavorites = document.querySelector('.list-favorites');
-let urlComparison = 'http://localhost:4004/comparados'
+
 let urlProductos = 'http://localhost:4000/productos'
+let urlComparison = 'http://localhost:4004/comparados'
+
 let totalPagar = 0
 
 const showHtml = async () => {
@@ -32,7 +36,6 @@ const showHtml = async () => {
 				corazon.style.color = "red"
 			}
 		})
-
 
 	})
 
@@ -105,11 +108,6 @@ async function validarMostrar(deseo) {
 	}
 }
 
-const btnClose = document.querySelector('#btn-close');
-const buttonHeaderFavorite = document.querySelector('#button-header-favorite');
-const buttonHeaderCarrito = document.querySelector("#button-header-carrito")
-
-
 buttonHeaderFavorite.addEventListener('click', () => {
 	containerListFavorites.classList.add('show');
 	validarMostrar("favorite")
@@ -127,96 +125,29 @@ btnClose.addEventListener('click', () => {
 async function cargarProductos() {
 	const contenedor = document.querySelector(".container-products")
 	const productos = await getProducts()
-	productos.forEach(producto => {
+	productos.forEach (producto => {
 		contenedor.innerHTML += `
 		<div class="card-product">
-		<div class="container-img">
-		  <img src="images/${producto.imagen}" alt="imagen Producto" />
-		  <img src='images/cuadricula.png' class='comparison'/>
-		</div>
-		<div class="content-card-product" data-product-id="1">
-		  <h3>${producto.nombre}</h3>
-		  <p>${producto.detalles}</p>
-		  <div class="footer-card-product">
-			<p class="priceParent">$<span class="price">${producto.precio}</span></p>
+			<div class="container-img">
+			<img src="../sneakers/${producto.imagen}" alt="imagen Producto" />
+			<img src='images/cuadricula.png' class='comparison' ids=${producto.id}>
+			</div>
+			<div class="content-card-product" data-product-id="1">
+			<h3>${producto.nombre}</h3>
+			<p>${producto.detalles}</p>
+			<div class="footer-card-product">
+				<p class="priceParent">$<span class="price">${producto.precio}</span></p>
 
-			<div class="container-buttons-card">
+				<div class="container-buttons-card">
 
-				<i class="fa-regular fa-heart" id="favorite-regular" idProducto=${producto.id}></i>
-		
-				<i class="fa-solid fa-bag-shopping" id="carrito" idProducto=${producto.id}></i>
+					<i class="fa-regular fa-heart" id="favorite-regular" idProducto=${producto.id}></i>
+			
+					<i class="fa-solid fa-bag-shopping" id="carrito" idProducto=${producto.id}></i>
 
 			</div>
 		  </div>
-		</div>
-	  </div>`
+		</div>`
 
-	  const comparisonContainer = document.querySelectorAll('.comparisonContainer')
-
-	  comparisonContainer.forEach((boton) => {
-		  
-		  boton.addEventListener('click', async (carta) => {
-  
-			  let imagen = carta.target
-			  imagen.classList.add('active')
-  
-			  let icono = carta.target.getAttribute('id')
-			  let productos = await fetch(urlProductos).then(product => {
-				  return product.json()
-			  })
-			  
-			  productos.forEach((igual) => {
-				  
-				  if(igual.id == icono){
-  
-					  let producto = {
-  
-						  imagen: `${igual.imagen}`,
-						  nombre: `${igual.nombre}`,
-						  detalles: `${igual.detalles}`
-  
-					  }
-  
-					  guardarFavoritos(urlComparison, producto)
-					  
-				  }
-			  })	
-		  })		
-	  })
-	  showHtml()  
-  	})
-}
-  async function cargarComparados(url){
-	const comparison = document.querySelector('.comparisonProducts')
-	
-		let comparados = await getFavorites(url)
-
-		comparados.forEach((comparate) => {
-			const comparated = document.createElement('div')
-			comparated.classList.add('firstProduct')
-			if (comparados.length < 3){
-			const {imagen, nombre, detalles} = comparate
-
-					comparated.innerHTML = `
-						<img src='images/${imagen}'>
-						<div class='infoComparison>'
-							<p>${nombre}</p>
-							<p>${detalles}</p>
-						</div>
-						<div class='footerComparison'>
-							<a> Agregar Carrito </a>
-						</div>
-
-					`
-					comparison.appendChild(comparated)
-			} 
-
-			if(comparados.length == 2){
-				comparison.style.display = 'block'
-			}
-		})
-  
-	
 	const btnsFavorite = document.querySelectorAll('#favorite-regular');
 	const btnsCarrito = document.querySelectorAll('#carrito');
 
@@ -268,13 +199,50 @@ async function cargarProductos() {
 			};
 
 			enviarCarrito(product);
+			cargarComparados(urlComparison)
+		
+		})
+	})
+	const comparisonContainer = document.querySelectorAll('.comparison')
+	comparisonContainer.forEach((boton) => {
+		  
+		boton.addEventListener('click', async (carta) => {
 
+			let imagen = carta.target
+			imagen.classList.add('active')
+
+			let icono = carta.target.getAttribute('ids')
+			let productos = await fetch(urlProductos).then(product => {
+				return product.json()
+			})
+			console.log(productos)
+			
+			productos.forEach((igual) => {
+
+				if (igual.id == icono){
+					
+					let producto = {
+
+						imagen: `${igual.imagen}`,
+						nombre: `${igual.nombre}`,
+						detalles: `${igual.detalles}`
+					}
+					guardarFavoritos(urlComparison, producto)
+				}
+			})	
+		})		
+	})
+
+	const cardProduct = document.querySelectorAll('.card-product')
+	cardProduct.forEach((e) => {
+		e.addEventListener('click', () => {
 			
 		})
 	})
-
-	showHtml()
+	showHtml()  
+  	})
 }
+
 function borrarFavorito(id) {
 	let url = "http://localhost:4001/favoritos"
 	fetch(`${url}/${id}`, {
@@ -284,7 +252,8 @@ function borrarFavorito(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	cargarProductos()
+	cargarProductos()	
 	cargarComparados(urlComparison)
 })
+
 

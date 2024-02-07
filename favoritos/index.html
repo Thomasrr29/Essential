@@ -62,15 +62,15 @@
 
       <section id="container">
         <section class="category">
+
           <div class="categoryFilter select">
-            <div class="titleCategory" id="tallaDropdown">
+            <div class="titleCategory header" id="tallaDropdown">
               <span>Categoria</span>
               <i class="fas fa-chevron-up arrowCategory" width="16px"></i>
             </div>
             <hr>
-            <div class="categories" id="tallaOptions">
-
-              <div class="categoriesLabels">
+            <div class="categories sub" id="tallaOptions">
+               <div class="categoriesLabels labels">
                 <label>
                   <input type="checkbox" name="talla" id="checkbox"> Running
                 </label>
@@ -83,17 +83,16 @@
                 <label>
                   <input type="checkbox" name="talla" id="checkbox"> Luxury
                 </label>
-              </div>
-              
+              </div>  
             </div>
           </div>
           <div class="subSizeFilter select">
-            <div class="titleSize" id="tallaDropdown">
+            <div class="titleSize header" id="tallaDropdown">
               <span>Tu talla</span>
               <i class="fas fa-chevron-up arrowSize" width="16px"></i>
             </div>
             <hr>
-            <div class="subSize" id="tallaOptions">
+            <div class="subSize sub" id="tallaOptions">
               <div class="sizeLabels">
                 <label>
                   <input type="checkbox" name="talla" value="s"> 5
@@ -149,6 +148,35 @@
               </div>
             </div>
           </div>
+          <div class="subSizeFilter select">
+            <div class="brandTitle header" id="tallaDropdown">
+              <span>Marca</span>
+              <i class="fas fa-chevron-up arrowBrand" width="16px"></i>
+            </div>
+            <hr>
+            <div class="brands sub" id="brandsOptions">
+              <div class="brandLabels labels">
+                <label>
+                  <input type="checkbox" name="talla" value="s"> Under Armour
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="m"> Nike
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> Adidas
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> Skechers
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> New Balance
+                </label>
+                <label>
+                  <input type="checkbox" name="talla" value="l"> Puma
+                </label>
+              </div>
+            </div>
+          </div>
         </section>
         <div class="container-content">
           <div class="container-products">
@@ -156,11 +184,11 @@
           </div>
         </div>
         <div class="comparisonProducts">
-  
+          <button class="close-button">x</button>
         </div>
       </section>
     </div>
-
+    <script src="favoritos.js" type="module"></script>
     <script src="apps.js" type="module"></script>
   </body>
 </html>
