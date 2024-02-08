@@ -195,6 +195,8 @@ function numeroAleatorio (){
 //Cargar producto seleccionado
 function cargarPrincipal(){
     const principal = JSON.parse(localStorage.getItem('ProductClick'))
+    console.log(principal);
+    
     const containerProduct = document.querySelector('.containerProduct')
 
     principal.forEach((producto) => {

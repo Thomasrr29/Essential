@@ -1,3 +1,19 @@
 {
-  "favoritos": []
+  "favoritos": [
+    {
+      "id": "3",
+      "title": "Nike Pegasus",
+      "price": "259900"
+    },
+    {
+      "id": "4",
+      "title": "Nike Revolution",
+      "price": "329000"
+    },
+    {
+      "id": "2",
+      "title": "Nike Flex Experience",
+      "price": "332000"
+    }
+  ]
 }
