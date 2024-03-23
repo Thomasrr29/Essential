@@ -36,8 +36,6 @@ const abrirRegister = () =>{
 function mostrarRegister(){
     contenedorLogin.style.display = "none"
     contenedorRegister.style.display = "block"
-
- 
 }
 
 function mostrarLogin(){

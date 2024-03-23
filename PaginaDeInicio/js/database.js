@@ -10,55 +10,55 @@ document.querySelector("#show1").addEventListener("click", mostrarPassword)
 document.querySelector("#show2").addEventListener("click", mostrarPassword)
 
 
-btn_register.addEventListener("submit", guardarUsuario)
+// btn_register.addEventListener("submit", guardarUsuario)
 btn_login.addEventListener("submit", iniciarSesion)
 
-function guardarUsuario(e){
-    e.preventDefault()
-    let username = document.querySelector("#username").value
-    let email = document.querySelector("#email").value
-    let password = document.querySelector("#password").value
-    let confirm = document.querySelector("#confirm").value
+// function guardarUsuario(e){
+//     e.preventDefault()
+//     let username = document.querySelector("#username").value
+//     let email = document.querySelector("#email").value
+//     let password = document.querySelector("#password").value
+//     let confirm = document.querySelector("#confirm").value
 
-    if(password == confirm){
-        const newUser = {
-            username,
-            email,
-            password
-        }
+//     if(password == confirm){
+//         const newUser = {
+//             username,
+//             email,
+//             password
+//         }
 
-        setTimeout(()=>{
-            sendData(newUser)
+//         setTimeout(()=>{
+//             sendData(newUser)
     
-            document.querySelector("#username").value = "";
-            document.querySelector("#email").value = "";
-            document.querySelector("#password").value = "";
-            document.querySelector("#confirm").value = "";
-        }, 2000)
+//             document.querySelector("#username").value = "";
+//             document.querySelector("#email").value = "";
+//             document.querySelector("#password").value = "";
+//             document.querySelector("#confirm").value = "";
+//         }, 2000)
 
-        Swal.fire({
-            title: "Te has registrado con exito",
-            text: "Bienvenido a la familia essential shoes",
-            imageUrl: "imagenes/458_icons-01.jpg",
-            width: 700,
-            height: 500,
-            imageWidth: 200,
-            imageHeight:200,
-            backdrop: `
-            rgba(0,0,0,0.7)
-            no-repeat
-          `,
-          });
+//         Swal.fire({
+//             title: "Te has registrado con exito",
+//             text: "Bienvenido a la familia essential shoes",
+//             imageUrl: "imagenes/458_icons-01.jpg",
+//             width: 700,
+//             height: 500,
+//             imageWidth: 200,
+//             imageHeight:200,
+//             backdrop: `
+//             rgba(0,0,0,0.7)
+//             no-repeat
+//           `,
+//           });
           
 
     
-    }else{
-        Swal.fire({
-            text: "Las contraseñas no coinciden",
-            icon: "error"
-          });
-    }
-}
+//     }else{
+//         Swal.fire({
+//             text: "Las contraseñas no coinciden",
+//             icon: "error"
+//           });
+//     }
+// }
 
 function iniciarSesion(e){
     e.preventDefault()

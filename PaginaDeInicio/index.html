@@ -47,40 +47,32 @@
                     </div>
                 </form>
             </div>
-
-
-
+            
             <div class="form-box register">
                 <h2>sign up</h2>
-                <form action="#">
+                <form action="http://localhost:3000/registro" method="post" enctype="application/x-www-form-urlencoded">
                     <div class="input">
-                        <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" required id="username">
+                        <span class="icon"><ion-icon ></ion-icon></span>
+                        <input type="text" name="name" id="username" >
                         <label for="">Username</label>
                     </div>
 
                     <div class="input">
-                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                        <input type="email" id="email" required>
+                        <span class="icon"><ion-icon></ion-icon></span>
+                        <input type="email" id="email" name="email">
                         <label for="">Email</label>
                     </div>
 
                     <div class="input">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" id="password" required>
+                        <span class="icon"><ion-icon ></ion-icon></span>
+                        <input type="password" id="password" name="password">
                         <label for="">password</label>
-                    </div>
-
-                    <div class="input">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" id="confirm" required>
-                        <label for="">confirm password</label>
                     </div>
 
                     <div class="remember-forgot">
                         <label for="check1" id="show2"><input type="checkbox" id="check1">show password</label>
                     </div>
-                    <button type="submit" class="btn">sign up</button>
+                    <input type="submit" class="btn">sign up</input>
                     <div class="login-register">
                         <p>already have an account?
                             <a href="#" class="login-link">Login</a>
@@ -92,7 +84,7 @@
             
     <header class="header">
 
-        <p class="announcements"> Envio gratis con compras apartir de $150.000 </p>
+        <p class="announcements">Envio gratis con compras apartir de $150.000 </p>
 
         <div class="menu container">
 
@@ -153,34 +145,39 @@
                         </svg>
                     </button>
                 </div>
+            </div>
+        </section>
+        <section class="types">
 
-                <div class="containTypes">
-                    <div class="typesContains">
-                        <div class="typeImg" id="accesoriosDown">
-                            <a href="">
-                                <img src="../imagenes/pexels-nappy-936094.jpg" alt="" class="imageType imgSection" width="100px">
-                                <div class="titleType running">Running</div>
-                            </a>
-                        </div>
-    
-                        <div class="typeImg">
-                            <a href="">
-                                <img src="../imagenes/pexels-anna-shvets-5069194.jpg" alt="" class="imageType imgSection" width="100px">
-                                <div class="titleType training">Training</div>
-                            </a>
-    
-                        </div>
-    
-                        <div class="typeImg">
-                            <a href="">
-                                <img src="../imagenes/pexels-pixabay-161172.jpg" alt="" class="imageType imgSection" width="100px">
-                                <div class="titleType trail">Trail</div>
-                            </a>
-    
-                        </div>
-    
+            <div class="containTypes">
+                <div class="typesContains">
+                    <div class="typeImg" id="accesoriosDown">
+                        <a href="">
+                            <img src="../imagenes/pexels-nappy-936094.jpg" alt="" class="imageType imgSection" width="100px">
+                            <div class="titleType running"><p>Running</p></div>
+                        </a>
+                    </div>
+        
+                    <div class="typeImg">
+                        <a href="">
+                            <img src="../imagenes/pexels-anna-shvets-5069194.jpg" alt="" class="imageType imgSection" width="100px">
+                            <div class="titleType training"><p>Training</p></div>
+                        </a>
+
+                    </div>
+
+                    <div class="typeImg">
+                        <a href="">
+                            <img src="../imagenes/pexels-pixabay-161172.jpg" alt="" class="imageType imgSection" width="100px">
+                            <div class="titleType trail"><p>Trail</p></div>
+                        </a>
+
                     </div>
                 </div>
+            </div>
+
+        </section>
+                
 
                 <div class="swiper mySwiper">
 
@@ -202,7 +199,7 @@
                     <div class="swiper-pagination"></div>
                   </div>   
             </div>
-        </section>
+        
 
         <div class="containerMain">
                 <div class="containerFavicons">
