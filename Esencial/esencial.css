@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
+:root {
+
+    --color-primario: rgb(52, 140, 255);
+    --color-secundario: rgb(0, 58, 120);
+    --orange:rgb(255, 145, 0);
+    --blanco: #fff;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+html {
+
+    font-size: 62.5%;
+}
+
+body {
+
+    font-size: 16px;
+    width: 100%;
+    font-family: 'Alata', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Kanit', sans-serif;
+}
+
+.announcements {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(52, 140, 255);
+    width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.header {
+    width: 100%;
+    background-color: rgb(0, 58, 120);
+}
+
+.buscador{
+    display: none;
+    border-radius: 1rem;
+    border: none;
+}
+
+.navBar ul li a{
+    color: rgb(255, 255, 255);
+    line-height: 2;
+    position: relative;
+}
+  
+.navBar ul li a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
+}
+  
+.navBar ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+.header .container {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-icon {
+    cursor: pointer;
+    color: #fff;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateX(-40%);
+    width: 20rem;
+    z-index: 1;
+    display: none;
+    background-color: #fff;
+}
+
+.options h2{
+
+    margin: 5px;
+    font-size: 17px;
+    border-bottom: 2px solid black; 
+}
+
+  .custom-select:hover .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .options a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .options a:hover {
+    background-color: #f2f2f2;
+  }
+
+.header .container {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header .unorderList {
+
+    display: flex;
+    list-style: none;
+    margin-left: 15rem;
+}
+
+.unorderList li {
+
+    display: flex;
+}
+
+.unorderList a {
+
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 1.5rem; 
+}
+
+header .user {
+
+    display: flex;
+    gap: 4rem;
+    margin-left: 6rem;
+
+}
+
+header .navToggle {
+
+    font-size: 3rem;
+    background: none;
+    border: none;
+    padding: 0rem 2rem;
+    line-height: 6rem;
+    display: none;
+}
+
+.navLink:hover {
+
+    color: rgb(0, 110, 255);
+}
+
+.main {
+
+    width: 100%;
+}
+
+.communityTitle {
+
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.communityTitle .textTitle {
+
+    margin: 5rem;
+}
+
+.textCommunity {
+
+    text-align: center;
+}
+
+.mainTeam {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.textTeam {
+
+    width: 80%;
+    padding: 6rem 0;
+}
+
+.textTeam h2, p {
+
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.imageTeam {
+
+    width: 80%;
+}
+
+.imageTeam img {
+
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    background-color: rgb(0, 58, 120);
+    width: 100%;
+    padding: 6rem;
+}
+
+.footer h3 {
+
+    color: white;
+    margin: 2rem 0;
+}
+
+
+.sectionFooter a{
+
+    font-size: 1.4rem;
+
+}
+
+.footer li {
+
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.footerLink:hover {
+
+    color: rgb(0, 0, 0);
+}
+
+.footer img {
+
+    margin: 1rem;
+}
+
+.footer a {
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.footerDown {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.footerDown h3 {
+
+    font-size: 1.2rem;
+}
+
+.footerDown .terms {
+
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footerDown .terms a {
+
+    text-decoration: none;
+    color: black;
+}
+
+.copyrightDiv {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright{
+
+
+   width: auto;
+   margin: 2rem;
+   font-size: 1rem;
+}

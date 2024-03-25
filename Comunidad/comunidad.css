@@ -1,3 +1,12 @@
+:root {
+
+    --color-primario: rgb(52, 140, 255);
+    --color-secundario: rgb(0, 58, 120);
+    --orange:rgb(255, 145, 0);
+    --blanco: #fff;
+
+}
+
 * {
 
     padding: 0;
@@ -21,14 +30,14 @@ body {
 .header {
 
     width: 100%;
-    background-color: rgb(0, 136, 255);
+    background-color: var(--color-secundario)
 }
 
 .logo {
 
     margin: 0.5rem 0 0.5rem 5rem;
 }
-.header .container {
+.header .containerHeader {
 
     display: flex;
     justify-content: flex-start;
@@ -37,14 +46,13 @@ body {
 
 .header .unorderList {
 
-    width: 100%;
     display: flex;
     list-style: none;
-    margin-left: 60rem;
+    margin-left: 80rem;
 }
 
 .navBar ul li a{
-    color: black;
+    color: rgb(255, 255, 255);
     line-height: 2;
     position: relative;
 }
@@ -55,7 +63,7 @@ body {
     width: 0;
     height: 2px;
     border-radius: 2px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     position: absolute;
     bottom: -.25rem;
     right: 0;
@@ -70,7 +78,7 @@ body {
 .unorderList a {
 
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 1.6rem;
     margin: 1.5rem;
     
@@ -96,133 +104,590 @@ header .navToggle {
 
 .navLink:hover {
 
-    color: rgb(0, 110, 255);
+    color: var(--color-secundario)
 }
 
-.main {
-    display: none;
+main {
+
     width: 100%;
-    margin-top: 8rem;
 }
 
-.nextEvents {
 
-    width: 80%;
-    margin: auto;
-}
 
-.nextEvents {
-    width: 80%;
-    margin: auto;
-}
-
-.titleNext {
-    width: 100%;
-    text-align: center;
-}
-
-.titleNext h2 {
-    font-size: 5rem;
-    margin: 2rem;
-}
-
-.nextEvent {
-    width: 100%;
-    position: relative;
-}
-
-.nextEvent img {
-    width: 100%;
-    height: 50rem;
-    object-fit: cover;
-    object-position: 50% 10%;
-}
-
-.nextEvent .textEvents p {
-    position: absolute;
-    font-size: 4.5rem;
-    color: azure;
-    font-weight: 400;
-    text-shadow: 2px 2px 2px black;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-}
-
-.containerPills {
-
-    width: 80%;
-    margin: auto;
-    margin-top: 5rem;
-}
-
-.containerPills h2 {
-
-    font-size: 3rem;
-    margin: 2rem;
-}
-.pills {
+.mainTeam {
 
     display: flex;
     width: 100%;
-    gap: 5rem;
 }
 
-.cardPills {
+.mainTerms2 {
 
-    width: 30%;
-    height: 40rem;
-    background-color: rgb(11, 149, 255);
-    padding: 3rem;
-    border-radius: 1rem;
+    width: 60%;
+    margin: auto;
+    margin-top: 10rem;
 }
 
-.cardPills h3 {
+.cardTerms {
 
+    display: flex;
+    height: 300px;
+    width: 100%;
+}
+
+.textTeam {
+
+    width: 50%;
+    padding: 6rem 0;
+ 
+}
+
+.textTeam2 {
     color: white;
+    background-color: var(--color-secundario)
 }
 
-.cardPills p {
-
-    color: rgb(216, 216, 216);
-}
-.cardPills img {
-
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-    object-position: 50% 20%; 
-}
-
-.mainEthos {
-
-    width: 100%;
-}
-
-.Ethos {
+.textTeam h2, .textTeam p {
 
     width: 80%;
-    margin: auto;
+    margin: 2rem auto;
 }
 
-.ethosImg{
 
+.imageTeam {
+
+    width: 50%;
+}
+
+.start {
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.end {
+
+    display: flex;
+    justify-content: flex-end;
+} 
+
+.imageTeam2 {
+
+    width: 50%;
+    display: flex;
+}
+
+.imageTeam img {
 
     width: 100%;
-    height: 30rem;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4rem;
 }
 
-.ethosImg img {
+.imageTeam2 img {
+
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.communityTitle {
+
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageCommunity {
+    
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.imageCommunity img {
 
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.textCommunity {
+
+    text-align: center;
+    position: absolute;
+    top: 65%;
+    left: 0%;
+    bottom: 0;
+    right: 0;
+    gap: 5rem;
+   
+}
+
+.textCommunity h2 {
+
+    margin: 2rem 0;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 1px 1px 10px black;
+}
+
+.textCommunity p {
+
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 10px black;
+}
+
+/* .pills {
+
+    width: 100%;
+}
+
+.bodyPills {
+
+    width: 80%;
+    margin: 4rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+.bodyPills .pill {
+
+    width: 30%;
+    height: 220px;
+    text-align: center;
+    background-color: var(--color-primario);
+    border-radius: 5rem;
+}
+
+.pill h2 {
+
+    margin: 2rem 0.5rem;
+}
+
+.text2Pill{
+
+    width: 100%;
+    font-size: 1.2rem;
+}  */
+
+/* .row {
+
+    width: 100%;
+}
+
+.cards {
+
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.card2 {
+    border-radius: 10px;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    width: 400px;
+    height: 180px;
+    background-color: var(--color-primario);
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+  }
+  
+  .card2::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -15px;
+    right: -15px;
+    background: var(--color-secundario);
+    height:220px;
+    width: 25px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card2:hover::before{
+      transition-delay:0.2s ;
+  
+    transform: scale(40);
+  }
+  
+  .card2:hover{
+      color: #ffffff;
+  
+  }
+  
+  .card2 p{
+      padding: 10px 0;
+  } */
+
+
+.container{
+
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    padding: 5rem 0 10rem 0;
+
+}
+
+.container .card{
+    position: relative;
+    cursor: pointer;
+}
+
+.container .card .face{
+    width: 300px;
+    height: 100px;
+    transition: 0.5s;
+    
+}
+
+.container .card .face.face1{
+    position: relative;
+    background: var(--color-secundario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 1;
+    transform: translateY(100px);
+
+}
+
+.container .card:hover .face.face1{
+    background: var(--color-primario);
+    transform: translateY(0);
+}
+
+.container .card .face.face1 .content{
+    opacity: 0.2;
+    transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content{
+    opacity: 1;
+}
+
+/* .container .card .face.face1 .content img{
+    max-width: 100px;
+    position: absolute;
+} */
+
+.container .card .face.face1 .content h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
     position: relative;
 }
 
-.EthosFocus h2 {
+.container .card .face.face2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 
-    position: absolute;
+
+}
+
+.container .card:hover .face.face2{
+    transform: translateY(0);
+}
+
+.container .card .face.face2 .content p{
+    margin: 0;
+    padding: 0;
+}
+
+.container .card .face.face2 .content a{
+    margin: 15px 0 0;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.container .card .face.face2 .content a:hover{
+    background: #333;
+    color: #fff;
+}
+  
+.mainCards {
+
+    width: 100%;
+    background-color:var(--color-secundario);
+    padding: 4rem 0;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.titleDeportistas {
+
+    width: 100%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 6rem 0;
+    color: white;
+}
+.card2 {
+    width: 32rem;
+    height: 32rem;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    color: white;
+ 
+    img {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      transition: opacity .2s ease-out;
+    }
+  
+    h2 {
+      position: absolute;
+      font-weight: bolder;
+      inset: auto auto 30px 30px;
+      margin: 0;
+      transition: inset .3s .3s ease-out;
+    }
+    
+    p, a {
+      position: absolute;
+      opacity: 0;
+      max-width: 80%;
+      transition: opacity .3s ease-out;
+    }
+    
+    p {
+      inset: auto auto 80px 30px;
+    }
+    
+    a {
+      inset: auto auto 40px 30px;
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    &:hover h2 {
+      inset: auto auto 220px 30px;
+      transition: inset .3s ease-out;
+    }
+    
+    &:hover p, &:hover a {
+      opacity: 1;
+      transition: opacity .5s .1s ease-in;
+    }
+    
+    &:hover img {
+      transition: opacity .3s ease-in;
+      opacity: 1;
+    }
+  
+}
+
+.infoMain {
+
+    width: 80%;
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.infoMain .titleInfo {
+
+    width: 100%;
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+.infoMain .BodyInfo {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+}
+
+.footerMain {
+
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: auto;
+    background-color: white;
+    padding: 4rem;
+    border-radius: 2rem;
+}
+
+.footerMain h2 {
+
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+}
+
+.buttonMain {
+
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-secundario);
+    padding: 1rem 2rem; 
+    border-radius: 2rem;
+    box-shadow: var(--color-secundario)
+
+}
+
+
+.botonVolver{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonVolver .boton {
+
+    color: black;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-top: 5rem;
+
+}
+.footer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    background-color: var(--color-secundario);
+    padding: 6rem 0;
+    margin-top: 10rem;
+}
+
+.footer h3 {
+
+    color: white;
+    margin: 2rem 0;
+}
+
+
+.sectionFooter a{
+
+    font-size: 1.4rem;
+
+}
+
+.footer li {
+
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.footerLink:hover {
+
+    color: rgb(0, 0, 0);
+}
+
+.footer img {
+
+    margin: 1rem;
+}
+
+.footer a {
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.footerDown {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.footerDown h3 {
+
+    font-size: 1.2rem;
+}
+
+.footerDown .terms {
+
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footerDown .terms a {
+
+    text-decoration: none;
+    color: black;
+}
+
+.copyrightDiv {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright{
+
+
+   width: auto;
+   margin: 2rem;
+   font-size: 1rem;
 }

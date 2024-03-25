@@ -11,7 +11,7 @@ document.querySelector("#show2").addEventListener("click", mostrarPassword)
 
 
 // btn_register.addEventListener("submit", guardarUsuario)
-btn_login.addEventListener("submit", iniciarSesion)
+// btn_login.addEventListener("submit", iniciarSesion)
 
 // function guardarUsuario(e){
 //     e.preventDefault()
@@ -60,32 +60,32 @@ btn_login.addEventListener("submit", iniciarSesion)
 //     }
 // }
 
-function iniciarSesion(e){
-    e.preventDefault()
-    const email = document.querySelector("#email1").value
-    const password = document.querySelector("#password1").value
-    let validate = false
+// function iniciarSesion(e){
+//     e.preventDefault()
+//     const email = document.querySelector("#email1").value
+//     const password = document.querySelector("#password1").value
+//     let validate = false
 
-    usuariosAll.forEach(usuario =>{
-        if(usuario.email == email && usuario.password == password){
-            validate = true
-            const sesion = {
-                "usuario": usuario.email
-            }
+//     usuariosAll.forEach(usuario =>{
+//         if(usuario.email == email && usuario.password == password){
+//             validate = true
+//             const sesion = {
+//                 "usuario": usuario.email
+//             }
 
-            localStorage.setItem("sesion", JSON.stringify(sesion))
-            window.location = "../UserPage/index.html"
-        }
+//             localStorage.setItem("sesion", JSON.stringify(sesion))
+//             window.location = "../UserPage/index.html"
+//         }
 
-    })
+//     })
 
-    if(validate != true){
-        Swal.fire({
-            text: "Correo o contraseña incorrectos",
-            icon: "error"
-          });
-    }
-}
+//     if(validate != true){
+//         Swal.fire({
+//             text: "Correo o contraseña incorrectos",
+//             icon: "error"
+//           });
+//     }
+// }
 
 function mostrarPassword(){
     const check = document.querySelector("#check")

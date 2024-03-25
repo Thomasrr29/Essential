@@ -23,16 +23,16 @@
             <span class="cerrar">X</span>
             <div class="form-box login">
                 <h2>login</h2>
-                <form action="#">
+                <form action="http://localhost:3000/inicios" method="post">
                     <div class="input">
                         <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                        <input type="email" required id="email1">
+                        <input type="email" name="email"  id="email1" >
                         <label for="">Email</label>
                     </div>
 
                     <div class="input">
                         <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                        <input type="password" required id="password1">
+                        <input type="password" name="password" id="password1">
                         <label for="">password</label>
                     </div>
 
@@ -50,7 +50,7 @@
             
             <div class="form-box register">
                 <h2>sign up</h2>
-                <form action="http://localhost:3000/registro" method="post" enctype="application/x-www-form-urlencoded">
+                <form action="http://localhost:3000/registro" method="post">
                     <div class="input">
                         <span class="icon"><ion-icon ></ion-icon></span>
                         <input type="text" name="name" id="username" >
@@ -99,7 +99,7 @@
                     <li class="navItem"> <a href="../favoritos/index.html" class="navLink" id="filtroHombre" genero="Hombre">Hombre</a> </li>
                     <li class="navItem"> <a href="../favoritos/index.html" class="navLink" id="filtroMujer" genero="Mujer">Mujer</a> </li>
                     <li class="navItem"> <a href="../otros Productos/products.html" class="navLink">Accesorios</a> </li>
-                    <li class="navItem"> <a href="#comunity" class="navLink">Comunidad</a> </li>
+                    <li class="navItem"> <a href="../Comunidad/comunidad.html" class="navLink">Comunidad</a> </li>
                 </ul>
             </nav>
 
