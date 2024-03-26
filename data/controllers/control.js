@@ -1,6 +1,6 @@
 
 const { error } = require('console')
-const {modeloInicio, modeloRegistros} = require('../models/model')
+const {modeloInicio, modeloRegistros, modelSneakers, modelFavoritos, modelCarrito} = require('../models/model')
  
 const control = {
  
@@ -17,6 +17,15 @@ const control = {
 
     },
 
+    getFavorites: async (req, res) => {
+        try {
+            const favoritos = await modelFavoritos.find()
+            res.json(favoritos)
+        } catch(error){
+            console.error('Error obteniendo los productos favoritos', error)
+        }
+    },
+
     getProducts: async (req, res) => {
 
         try{
@@ -30,6 +39,28 @@ const control = {
 
         }
    
+    },
+
+    getCarrito: async (req, res) => {
+
+        try{
+            const carrito = await modelCarrito.find()
+            res.json(carrito)
+
+        } catch(error){
+            console.error('Error obteniendo datos carrito', error)
+        }
+
+    },
+
+    postCarrito: async (req, res) => {
+
+        try {
+
+            
+        } catch(error){
+            console.error('Error encontrado intentando postear carrito', error)
+        }
     },
 
     login: async (req, res) => {

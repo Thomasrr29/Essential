@@ -9,7 +9,7 @@ const buttonHeaderCarrito = document.querySelector("#button-header-carrito")
 const containerListFavorites = document.querySelector('.container-list-favorites');
 const listFavorites = document.querySelector('.list-favorites');
 
-let urlProductos = 'http://localhost:4000/productos'
+let urlProductos = 'http://localhost:3000/productos'
 let urlComparison = 'http://localhost:4004/comparados'
 
 let totalPagar = 0
@@ -17,7 +17,7 @@ let totalPagar = 0
 const showHtml = async () => {
 
 	const card_product = document.querySelectorAll(".card-product")
-	let url = "http://localhost:4001/favoritos"
+	let url = "http://localhost:3000/productos"
 	const favoritos = await getFavorites(url)
 	favoritos.forEach(favorito => {
 
@@ -40,7 +40,7 @@ const showHtml = async () => {
 
 	})
 
-	let url1 = "http://localhost:4003/carrito"
+	let url1 = "http://localhost:3000/carrito"
 	const counterCart = document.querySelector(".counter-cart")
 	const carrito = await getFavorites(url1)
 
@@ -52,20 +52,20 @@ const showHtml = async () => {
 
 //Enviar favoritos 
 const enviarDatos = (product) => {
-	let url = "http://localhost:4001/favoritos"
+	let url = "http://localhost:3000/favoritos"
 	guardarFavoritos(url, product)
 	showHtml()
 };
 
 const enviarCarrito = (product) => {
-	let url = "http://localhost:4003/carrito"
+	let url = "http://localhost:3000/carrito"
 	guardarCarrito(url, product)
 
 }
 //Mostrar en los favoritos 
 async function validarMostrar(deseo) {
 	const favorito_carrito = document.querySelector(".favorito-carrito")
-	let url = "http://localhost:4001/favoritos"
+	let url = "http://localhost:3000/favoritos"
 	if (deseo == "favorite") {
 		favorito_carrito.textContent = "Mis favoritos"
 		const favoritos = await getFavorites(url)
@@ -75,10 +75,10 @@ async function validarMostrar(deseo) {
 			const { title, price } = favorito
 			console.log(favoritos)
 			listFavorites.innerHTML += `
-		<div class="card-favorite">
-		<p class="title">${title}</p>
-		<p>${price}</p>
-	  </div> 
+				<div class="card-favorite">
+				<p class="title">${title}</p>
+				<p>${price}</p>
+			</div> 
 		`
 		})
 
@@ -86,7 +86,7 @@ async function validarMostrar(deseo) {
 		//Carrito
 		favorito_carrito.textContent = "Tu carrito"
 		listFavorites.innerHTML = ""
-		let url2 = "http://localhost:4003/carrito"
+		let url2 = "http://localhost:3000/carrito"
 		const carrito = await getFavorites(url2)
 		console.log("hola", carrito)
 		carrito.forEach(elemento => {
@@ -140,11 +140,11 @@ btnClose.addEventListener('click', () => {
 	containerListFavorites.classList.remove('show');
 });
 
-
 //Cargar productos del JSON
 async function cargarProductos() {
 	const contenedor = document.querySelector(".container-products")
-	const productos = await getProducts()
+	//LINK GET DE PRODUCTOS
+	const productos = await getProducts('http://localhost:3000/productos')
 	productos.forEach (producto => {
 		const genero = localStorage.getItem("genero")
 		console.log(genero);
@@ -178,7 +178,7 @@ async function cargarProductos() {
 	btnsFavorite.forEach(button => {
 
 		button.addEventListener('click', async e => {
-			let url = "http://localhost:4001/favoritos"
+			let url = "http://localhost:3000/favoritos"
 			const Allfavoritos = await getFavorites(url)
 			const idProducto = e.target.getAttribute("idProducto")
 			const result = Allfavoritos.some(favorito => favorito.id == idProducto)

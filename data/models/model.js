@@ -16,15 +16,35 @@ const schemaInicios = {
 
 const sneakersModel = {
 
-    id: Number,
-    referencia: Number,
-    name: String,
+    id:Number,
+    imagen:String,
+    nombre:String,
+    detalles: String,
+    precio: String,
+    genero: String,
+    marca:String,
+    tallas: Array,
+    descripcion: String
 };
+
+const favoritosModel = {
+    id: Number,
+    nombre: String,
+    imagen: String,
+}
+
+const carritoModel = {
+    id: Number,
+    nombre: String,
+    imagen: String,
+}
 
 
 const modeloRegistros = mongoose.model('registros', schemaRegistros);
 const modeloInicio = mongoose.model('inicios', schemaInicios);
 const modelSneakers = mongoose.model('productos', sneakersModel);
+const modelFavoritos = mongoose.model('favoritos', favoritosModel)
+const modelCarrito = mongoose.model('carrito', carritoModel)
 
 
-module.exports = {modeloRegistros, modeloInicio, modelSneakers}
+module.exports = {modeloRegistros, modeloInicio, modelSneakers, modelFavoritos, modelCarrito}
