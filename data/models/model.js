@@ -31,20 +31,22 @@ const favoritosModel = {
     id: Number,
     nombre: String,
     imagen: String,
-}
+    precio: String,
+};
 
 const carritoModel = {
     id: Number,
     nombre: String,
     imagen: String,
-}
+    precio: String
+};
 
 
 const modeloRegistros = mongoose.model('registros', schemaRegistros);
 const modeloInicio = mongoose.model('inicios', schemaInicios);
 const modelSneakers = mongoose.model('productos', sneakersModel);
 const modelFavoritos = mongoose.model('favoritos', favoritosModel)
-const modelCarrito = mongoose.model('carrito', carritoModel)
+const modelCarrito = mongoose.model('carritos', carritoModel)
 
 
 module.exports = {modeloRegistros, modeloInicio, modelSneakers, modelFavoritos, modelCarrito}

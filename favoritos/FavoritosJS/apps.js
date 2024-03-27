@@ -1,4 +1,4 @@
-import { getProducts, guardarFavoritos, getFavorites, guardarCarrito} from "../connection/api.js";
+import { getProducts, guardarFavoritos, getFavorites} from "../connection/api.js";
 import{cargarComparados} from "./favoritos.js"
 
 
@@ -10,24 +10,16 @@ const containerListFavorites = document.querySelector('.container-list-favorites
 const listFavorites = document.querySelector('.list-favorites');
 
 let urlProductos = 'http://localhost:3000/productos'
-let urlComparison = 'http://localhost:4004/comparados'
+
 
 let totalPagar = 0
 
 const showHtml = async () => {
 
 	const card_product = document.querySelectorAll(".card-product")
-	let url = "http://localhost:3000/productos"
+	let url = "http://localhost:3000/favoritos"
 	const favoritos = await getFavorites(url)
 	favoritos.forEach(favorito => {
-
-		const { title, price } = favorito
-		listFavorites.innerHTML += `
-		<div class="card-favorite">
-		<p class="title">${title}</p>
-		<p>${price}</p>
-	  </div> 
-		`
 
 		card_product.forEach(card => {
 			if (favorito.id === card.querySelector("#favorite-regular").getAttribute("idProducto")) {
@@ -46,22 +38,44 @@ const showHtml = async () => {
 
 	counterFavorites.textContent = favoritos.length
 	counterCart.textContent = carrito.length
-
-
 }
 
 //Enviar favoritos 
-const enviarDatos = (product) => {
-	let url = "http://localhost:3000/favoritos"
-	guardarFavoritos(url, product)
+const enviarFavoritos = (product) => {
+	try{ 
+		fetch("http://localhost:3000/favoritos", {
+			method: "POST",
+			headers: {
+				"Content-Type":"application/json"
+			},
+			body: JSON.stringify(product)
+		})
+		console.log(product)
+
+	} catch(error){
+		console.error('Error enviando al carrito', error)
+	}
 	showHtml()
 };
 
 const enviarCarrito = (product) => {
-	let url = "http://localhost:3000/carrito"
-	guardarCarrito(url, product)
+
+	try{ 
+		fetch("http://localhost:3000/carrito", {
+			method: "POST",
+			headers: {
+				"Content-Type":"application/json"
+			},
+			body: JSON.stringify(product)
+		})
+		console.log(product)
+
+	} catch(error){
+		console.error('Error enviando al carrito', error)
+	}
 
 }
+
 //Mostrar en los favoritos 
 async function validarMostrar(deseo) {
 	const favorito_carrito = document.querySelector(".favorito-carrito")
@@ -72,12 +86,13 @@ async function validarMostrar(deseo) {
 		listFavorites.innerHTML = ""
 
 		favoritos.forEach(favorito => {
-			const { title, price } = favorito
+			const { nombre, imagen, precio } = favorito
 			console.log(favoritos)
 			listFavorites.innerHTML += `
-				<div class="card-favorite">
-				<p class="title">${title}</p>
-				<p>${price}</p>
+			<div class="card-favorite">
+				<img src="../sneakers/${imagen}" width="40px">
+				<p class="title">${nombre}</p>
+				<p>${precio}</p>
 			</div> 
 		`
 		})
@@ -89,16 +104,30 @@ async function validarMostrar(deseo) {
 		let url2 = "http://localhost:3000/carrito"
 		const carrito = await getFavorites(url2)
 		console.log("hola", carrito)
+
 		carrito.forEach(elemento => {
-			const { imagen, nombre, precio } = elemento
+			const { id, nombre, imagen, precio } = elemento
 			totalPagar += parseInt(precio)
 			listFavorites.innerHTML += `
 		<div class="card-favorite">
-		<img src="${imagen}" width="40px">
-		<p class="title">${nombre}</p>
-		<p>${precio}</p>
+			<button class="close-button">x</button>
+			<img src="${imagen}" width="40px">
+			<p class="title" id="${id}">${nombre}</p>
+			<p>${precio}</p>
 	  </div> 
 		`
+		})
+
+		const closeBoton = document.querySelectorAll('.close-button')
+		console.log(closeBoton)
+		closeBoton.forEach(boton => {
+			boton.addEventListener('click', (e) => {
+				let card = e.target.closest('.card-favorite')
+				let ids = parseInt(card.children[2].getAttribute('id'))
+				console.log(ids)
+				eliminarCarrito(ids)
+
+			})
 		})
 		
 		const p = document.createElement("p")
@@ -177,7 +206,7 @@ async function cargarProductos() {
 
 	btnsFavorite.forEach(button => {
 
-		button.addEventListener('click', async e => {
+		button.addEventListener('click', async (e) => {
 			let url = "http://localhost:3000/favoritos"
 			const Allfavoritos = await getFavorites(url)
 			const idProducto = e.target.getAttribute("idProducto")
@@ -195,17 +224,16 @@ async function cargarProductos() {
 						}
 					})
 				})
-				borrarFavorito(idProducto)
 				showHtml()
 			} else {
-				const card = e.target.closest('.content-card-product');
+				const card = e.target.closest('.card-product');
 				const product = {
 					id: idProducto,
-					title: card.querySelector('h3').textContent,
-					price: card.querySelector('.price').textContent,
+					nombre: card.querySelector('h3').textContent,
+					imagen: card.querySelector('img').src,
+					precio: card.querySelector('.price').textContent,
 				};
-
-				enviarDatos(product);
+				enviarFavoritos(product);
 			}
 
 		});
@@ -217,49 +245,48 @@ async function cargarProductos() {
 			const card = e.target.closest('.card-product');
 			const product = {
 				id: idProducto,
-				imagen: card.querySelector('img').src,
 				nombre: card.querySelector('h3').textContent,
+				imagen: card.querySelector('img').src,
 				precio: card.querySelector('.price').textContent,
 			};
 
 			enviarCarrito(product);
-			cargarComparados(urlComparison)
 		
 		})
 	})
 
 	//Contenedor comparativo 
-	const comparisonContainer = document.querySelectorAll('.comparison')
-	comparisonContainer.forEach((boton) => {
+	// const comparisonContainer = document.querySelectorAll('.comparison')
+	// comparisonContainer.forEach((boton) => {
 		  
-		boton.addEventListener('click', async (carta) => {
+	// 	boton.addEventListener('click', async (carta) => {
 
-			let imagen = carta.target
-			imagen.classList.add('active')
+	// 		let imagen = carta.target
+	// 		imagen.classList.add('active')
 
-			let icono = carta.target.getAttribute('ids')
-			let productos = await fetch(urlProductos).then(product => {
-				return product.json()
-			})
-			console.log(productos)
+	// 		let icono = carta.target.getAttribute('ids')
+	// 		let productos = await fetch(urlProductos).then(product => {
+	// 			return product.json()
+	// 		})
+	// 		console.log(productos)
 			
-			productos.forEach((igual) => {
+	// 		productos.forEach((igual) => {
 
-				if (igual.id == icono){
+	// 			if (igual.id == icono){
 					
-					let producto = {
+	// 				let producto = {
 
-						imagen: `${igual.imagen}`,
-						nombre: `${igual.nombre}`,
-						detalles: `${igual.detalles}`,
-						precio: `${igual.precio}`
-					}
+	// 					imagen: `${igual.imagen}`,
+	// 					nombre: `${igual.nombre}`,
+	// 					detalles: `${igual.detalles}`,
+	// 					precio: `${igual.precio}`
+	// 				}
 
-					guardarFavoritos(urlComparison, producto)
-				}
-			})	
-		})		
-	})
+	// 				guardarFavoritos(urlComparison, producto)
+	// 			}
+	// 		})	
+	// 	})		
+	// })
 
 	const cardProduct = document.querySelectorAll('.card-product h3')
 
@@ -279,7 +306,7 @@ async function cargarProductos() {
 }
 
 function borrarFavorito(id) {
-	let url = "http://localhost:4001/favoritos"
+	let url = "http://localhost:3000/favoritos"
 	fetch(`${url}/${id}`, {
 		method: "DELETE"
 	})
@@ -288,7 +315,6 @@ function borrarFavorito(id) {
 
 document.addEventListener("DOMContentLoaded", () => {
 	cargarProductos()	
-	cargarComparados(urlComparison)
 })
 
 async function cargarProducto (id){
@@ -298,4 +324,16 @@ async function cargarProducto (id){
     const semejanza = producto.filter((product) => (product.id == id))
     localStorage.setItem('ProductClick', JSON.stringify(semejanza))
  
+}
+
+
+function eliminarCarrito (id){
+
+	try{
+		fetch(`http://localhost:3000/deleteCarrito/${id}`, {
+			method: "DELETE",
+		})
+	} catch(error){
+		console.error('ERROR ELIMINADO DEL CARRITO')
+	}
 }

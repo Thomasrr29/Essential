@@ -1,5 +1,4 @@
 
-const { error } = require('console')
 const {modeloInicio, modeloRegistros, modelSneakers, modelFavoritos, modelCarrito} = require('../models/model')
  
 const control = {
@@ -57,7 +56,62 @@ const control = {
 
         try {
 
+           const {id, nombre, imagen, precio} = req.body
+
+                const dataCarrito = {
+                    id: id,
+                    nombre: nombre,
+                    imagen: imagen,
+                    precio: precio,
+                }
+                
+                const data = new modelCarrito(dataCarrito)
+                const savedCarrito = data.save()
+                res.json(savedCarrito)
+           
+        } catch(error){
+            console.error('Error encontrado intentando postear carrito', error)
+        }
+    },
+
+    deleteCarrito: async (req, res) => {
+        try {
+            const {id} = req.params
+            console.log(id)
+            const carritoDelete = await modelCarrito.findOneAndDelete({id:id})
+
+            if(carritoDelete){
+                res.json({message: "Elemento eliminado del carrito"})
+                console.log('bien')
+            } else {
+                res.json({message: "Error eliminando en el carrito"})
+                console.log('mal')
+            }
+
             
+        } catch(error){
+            console.error('ERROR ELIMINANDO DEL CARRITO', error)
+        }
+    },
+
+    postFavoritos: async (req, res) => {
+
+        try {
+
+           const {id, nombre, imagen, precio} = req.body
+           console.log(req.body)
+
+                const dataFavoritos = {
+                    id: id,
+                    nombre: nombre,
+                    imagen: imagen,
+                    precio: precio,
+                }
+                
+                const data = new modelFavoritos(dataFavoritos)
+                const savedFavoritos = data.save()
+                res.json(savedFavoritos)
+           
         } catch(error){
             console.error('Error encontrado intentando postear carrito', error)
         }
