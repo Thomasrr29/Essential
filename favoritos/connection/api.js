@@ -24,14 +24,3 @@ export const getFavorites = async (url1) =>{
     return datos
 }
 
-export const guardarCarrito = async (url1, product) =>{
-    try{ 
-        await fetch(url1, {
-            method: "POST",
-            body: JSON.stringify(product),
-            "Content-Type": "application/json"
-        })
-    }catch(error){
-        console.log(error);
-    }
-}

@@ -5,7 +5,8 @@ const segundoBloque = document.querySelector('.containerAllSecondBlock')
 const containerAll = document.querySelector('.swiper')
 const buscar = document.querySelector('.buscar')
 const search = document.querySelector(".buscador")
-
+const login = document.querySelector('.formLogin')
+const register = document.querySelector('.formRegister')
 
 const handleScroll = () => {
     {
@@ -36,6 +37,94 @@ const handleScroll = () => {
 }
 document.addEventListener('scroll', handleScroll)
 
+register.addEventListener('submit', () => {
+
+    const username = document.querySelector('#username').value
+    const email = document.querySelector('#email').value
+    const password = document.querySelector('#password').value
+
+    const registro = {
+
+        name:username,
+        email: email,
+        password: password
+    }
+
+    fetch('http://localhost:3000/registro', {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: JSON.stringify(registro)
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error('ERROR INICIO DE SESION RESPONSE');
+        }
+        response.json()
+    })
+    .then(data => {
+        console.log(data)
+
+        window.location.href = './index.html,,'
+    })
+})
+
+login.addEventListener('submit',  async () => {
+
+    try {
+        const email = document.getElementById('email1').value
+        const password = document.getElementById('password1').value
+
+        const inicio = {
+            email: email,
+            password: password,
+        }
+
+        
+    const response = await fetch('http://localhost:3000/inicios', {
+            method: "POST",
+            headers: {
+                'Content-Type':"application/json",
+            },
+            body: JSON.stringify(inicio),   
+        })
+       
+        if(response.ok){
+            const data = await response.json()
+            localStorage.setItem('refresh', data.refreshToken);
+            localStorage.setItem('access', data.accessToken);  
+
+        } else {
+
+            console.error('Error en el inicio de sesión, creación de tokens')
+        }
+
+
+    } catch(error){
+            console.error('Error inicio de sesion inicial', error)
+    }
+})
+
+async function refresh(){
+    const refreshToken = localStorage.getItem('refresh')
+    const response = fetch('http://localhost:3000/refresh', {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: JSON.stringify(refreshToken)
+    })
+
+    if(response.ok){
+        const {accessToken} = await response.json()
+        localStorage.setItem('access', accessToken)
+    } else {
+        console.error('TOKEN INVALIDADO O DESHABILITADO, REFRESH ACCESS')
+    }
+
+}
+
 buscar.addEventListener("click", () =>{
     //Que el icono de buscar salga 
     if(search.classList.contains("activo")){
@@ -45,12 +134,15 @@ buscar.addEventListener("click", () =>{
         search.style.display = "block"
         search.classList.add("activo")
     }
- })
+})
 
 
 // function comprobarSesion(){
 //     const options = document.querySelector(".options")
-//     const sesion = JSON.parse(localStorage.getItem("sesion")) || ""
+//     const user = () => {
+//         fetch('http://localhost:3000/foundSome')
+//         .then
+//     }
 //     // const usuarios = JSON.parse(localStorage.getItem("registros")) || []
 //     //Validación inicio de sesión
 //     const validacion = usuarios.some(usuario => usuario.email == sesion.usuario)
@@ -83,7 +175,6 @@ buscar.addEventListener("click", () =>{
 
 // }
 
-//Swiper
 let swiper = new Swiper(".mySwiper", {
     pagination: {
       el: ".swiper-pagination",
@@ -94,27 +185,17 @@ let swiper = new Swiper(".mySwiper", {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-  });
-
-// document.addEventListener("DOMContentLoaded", ()=>{
-//     comprobarSesion()
-// })
-
-
+});
 
 const filtroHombre = document.querySelector("#filtroHombre")
 const filtroMujer = document.querySelector("#filtroMujer")
 console.log(filtroHombre);
 
-
-    filtroHombre.addEventListener("click", (e)=>{
+filtroHombre.addEventListener("click", (e)=>{
         localStorage.setItem("genero", e.target.getAttribute("genero")) 
-    })
+})
 
-    filtroMujer.addEventListener("click", (e)=>{
+filtroMujer.addEventListener("click", (e)=>{
 
         localStorage.setItem("genero", e.target.getAttribute("genero")) 
-    })
-
-    
-// comprobarSesion()
+})

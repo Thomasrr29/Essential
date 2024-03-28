@@ -80,10 +80,7 @@ document.querySelector("#show2").addEventListener("click", mostrarPassword)
 //     })
 
 //     if(validate != true){
-//         Swal.fire({
-//             text: "Correo o contraseña incorrectos",
-//             icon: "error"
-//           });
+//         
 //     }
 // }
 
