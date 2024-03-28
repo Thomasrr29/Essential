@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
 
+
+
+:root {
+
+    --color-primario: rgb(52, 140, 255);
+    --color-secundario: rgb(0, 58, 120);
+    --orange:rgb(255, 145, 0);
+    --blanco: #fff;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -474,9 +484,13 @@ header a {
 }
 
 .comprar{
-	padding: 10px;
-	background-color: aqua;
-	border-radius: 4px;
-	transition-duration: 1s;
+	width: 100%;
+	height: 3.5rem;
+	background-color: var(--color-primario);
+	border-radius: 2rem;
+	color: white;
+	font-weight: 800;
 	cursor: pointer;
+	border: none;
+	box-shadow: 1px 1px 10px 1px white;
 }

@@ -1,6 +1,4 @@
-import { getProducts, guardarFavoritos, getFavorites} from "../connection/api.js";
-import{cargarComparados} from "./favoritos.js"
-
+import { getProducts, getFavorites} from "../connection/api.js";
 
 const counterFavorites = document.querySelector('.counter-favorite');
 const btnClose = document.querySelector('#btn-close');
@@ -29,7 +27,6 @@ const showHtml = async () => {
 				corazon.style.color = "red"
 			}
 		})
-
 	})
 
 	let url1 = "http://localhost:3000/carrito"
@@ -97,14 +94,15 @@ async function validarMostrar(deseo) {
 		`
 		})
 
-	} else if (deseo == "carrito") {
+	} 
+	
+	else if (deseo == "carrito") {
+
 		//Carrito
 		favorito_carrito.textContent = "Tu carrito"
 		listFavorites.innerHTML = ""
 		let url2 = "http://localhost:3000/carrito"
 		const carrito = await getFavorites(url2)
-		console.log("hola", carrito)
-
 		carrito.forEach(elemento => {
 			const { id, nombre, imagen, precio } = elemento
 			totalPagar += parseInt(precio)
@@ -129,29 +127,34 @@ async function validarMostrar(deseo) {
 
 			})
 		})
-		
-		const p = document.createElement("p")
-		p.innerHTML = "Total: " +  totalPagar.toLocaleString()
-		const button = document.createElement("button")
-		button.textContent = "realizar compra"
-		button.classList.add("comprar")
-		listFavorites.appendChild(p)
-		listFavorites.appendChild(button)
 
-		const comprar = document.querySelector(".comprar")
-		comprar.addEventListener("click", ()=>{
-		if(carrito.length > 0){
-		
-				window.location = "carrito.html"
-		
-			return
-		}
-		Swal.fire({
-            text: "El carrito esta vacio",
-            icon: "error"
-          });
-		})
-		
+		if(carrito.length === 0){
+
+			Swal.fire({
+				text: "Tu carrito esta vacio",
+				icon: "error"
+			});
+
+		} else {
+			
+			const p = document.createElement("p")
+			p.innerHTML = "Total: " +  totalPagar.toLocaleString()
+			const button = document.createElement("button")
+			button.textContent = "Finalizar Compra"
+			button.classList.add("comprar")
+			listFavorites.appendChild(p)
+			listFavorites.appendChild(button)
+
+			const comprar = document.querySelector(".comprar")
+			comprar.addEventListener("click", () => {
+			if(carrito.length > 0){
+					window.location = "carrito.html"
+			} else {
+				
+				
+			} 
+			})
+		}	
 	}
 }
 
@@ -195,11 +198,11 @@ async function cargarProductos() {
 
 					<i class="fa-regular fa-heart" id="favorite-regular" idProducto= ${producto.id} ids=${producto.id}></i>
 			
-					<i class="fa-solid fa-bag-shopping" id="carrito"  idProducto= ${producto.id} ids=${producto.id}></i>
-
 				</div>
 		  	</div>
 		</div>`
+
+// <i class="fa-solid fa-bag-shopping" id="carrito"  idProducto= ${producto.id} ids=${producto.id}></i>
 
 	const btnsFavorite = document.querySelectorAll('#favorite-regular');
 	const btnsCarrito = document.querySelectorAll('#carrito');
@@ -325,7 +328,6 @@ async function cargarProducto (id){
     localStorage.setItem('ProductClick', JSON.stringify(semejanza))
  
 }
-
 
 function eliminarCarrito (id){
 

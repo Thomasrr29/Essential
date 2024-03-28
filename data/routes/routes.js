@@ -4,15 +4,19 @@ const control = require('../controllers/control')
 
 // routes.get('/data', control.getData);
 
-routes.get('/get', control.getData )
+
 routes.post('/registro', control.register);
 routes.post('/inicios', control.login);
-routes.get('/carrito', control.getCarrito);
 routes.post('/carrito', control.postCarrito);
-routes.delete('/deleteCarrito/:id', control.deleteCarrito);
+routes.post('/favoritos', control.postFavoritos);
+routes.post('/refresh', control.refresh)
+
+routes.get('/carrito', control.getCarrito);
+routes.get('/getUsuarios', control.getInicios);
+routes.get('/getRegistros', control.getRegistros);
 routes.get('/productos', control.getProducts);
-routes.post('/favoritos', control.postFavoritos)
 routes.get('/favoritos', control.getFavorites);
 
+routes.delete('/deleteCarrito/:id', control.deleteCarrito);
 
-module.exports = routes
+module.exports = routes;
