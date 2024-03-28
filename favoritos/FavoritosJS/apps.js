@@ -17,20 +17,12 @@ let totalPagar = 0
 const showHtml = async () => {
 
 	const card_product = document.querySelectorAll(".card-product")
-	let url = "http://localhost:3000/productos"
+	let url = "http://localhost:3000/favoritos"
 	const favoritos = await getFavorites(url)
 	favoritos.forEach(favorito => {
 
-		const { title, price } = favorito
-		listFavorites.innerHTML += `
-		<div class="card-favorite">
-		<p class="title">${title}</p>
-		<p>${price}</p>
-	  </div> 
-		`
-
 		card_product.forEach(card => {
-			if (favorito.id === card.querySelector("#favorite-regular").getAttribute("idProducto")) {
+			if (favorito.id == card.querySelector("#favorite-regular").getAttribute("idProducto")) {
 				const corazon = card.querySelector("#favorite-regular")
 				corazon.classList.remove("fa-regular")
 				corazon.classList.add("fa-solid")
@@ -72,12 +64,12 @@ async function validarMostrar(deseo) {
 		listFavorites.innerHTML = ""
 
 		favoritos.forEach(favorito => {
-			const { title, price } = favorito
+			const { nombre, imagen } = favorito
 			console.log(favoritos)
 			listFavorites.innerHTML += `
 				<div class="card-favorite">
-				<p class="title">${title}</p>
-				<p>${price}</p>
+				<img src=${imagen} width="40px">
+				<p class="title">${nombre}</p>
 			</div> 
 		`
 		})
@@ -180,14 +172,14 @@ async function cargarProductos() {
 		button.addEventListener('click', async e => {
 			let url = "http://localhost:3000/favoritos"
 			const Allfavoritos = await getFavorites(url)
-			const idProducto = e.target.getAttribute("idProducto")
+			const idProducto = parseInt(e.target.getAttribute("idProducto"))
 			const result = Allfavoritos.some(favorito => favorito.id == idProducto)
 
 			if (result == true) {
 				const card_products = document.querySelectorAll(".card-product")
 				Allfavoritos.forEach(favorito => {
 					card_products.forEach(card => {
-						if (favorito.id === card.querySelector("#favorite-regular").getAttribute("idProducto")) {
+						if (favorito.id == card.querySelector("#favorite-regular").getAttribute("idProducto")) {
 							const corazon = card.querySelector("#favorite-regular")
 							corazon.classList.remove("fa-solid")
 							corazon.classList.add("fa-regular")
@@ -196,16 +188,25 @@ async function cargarProductos() {
 					})
 				})
 				borrarFavorito(idProducto)
-				showHtml()
+				window.location = "index.html"
 			} else {
 				const card = e.target.closest('.content-card-product');
 				const product = {
 					id: idProducto,
-					title: card.querySelector('h3').textContent,
-					price: card.querySelector('.price').textContent,
-				};
+					nombre: card.querySelector('h3').textContent,
+					imagen: card.parentElement.querySelector(".container-img img").src,
+				}
+				console.log(product);
 
-				enviarDatos(product);
+				fetch("http://localhost:3000/favoritos", {
+					method: "POST",
+					headers:{
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(product)
+				})
+	cargarProductos()
+				// enviarDatos(product);
 			}
 
 		});
@@ -279,7 +280,7 @@ async function cargarProductos() {
 }
 
 function borrarFavorito(id) {
-	let url = "http://localhost:4001/favoritos"
+	let url = "http://localhost:3000/favoritos/delete"
 	fetch(`${url}/${id}`, {
 		method: "DELETE"
 	})

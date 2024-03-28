@@ -26,6 +26,28 @@ const control = {
         }
     },
 
+    postFavorites: async (req, res) => {
+        const datos = req.body
+        try {
+            const favoritos = new modelFavoritos(datos)
+            const savedFavoritos = await favoritos.save()
+            res.json(savedFavoritos)
+        } catch(error){
+            console.error('Error obteniendo los productos favoritos', error)
+        }
+    },
+
+    deleteFavorite: async (req, res) => {
+        try {   
+            const {id} = req.params
+            console.log(id);
+            const favoritos = await modelFavoritos.findOneAndDelete({id: id})
+            res.json(favoritos)
+        } catch(error){
+            console.error('Error obteniendo los productos favoritos', error)
+        }
+    },
+
     getProducts: async (req, res) => {
 
         try{

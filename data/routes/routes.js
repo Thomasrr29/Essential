@@ -10,6 +10,8 @@ routes.post('/inicios', control.login);
 routes.post('/nuevoCarrito', control.postCarrito)
 routes.get('/productos', control.getProducts);
 routes.get('/favoritos', control.getFavorites);
+routes.post('/favoritos', control.postFavorites);
+routes.delete('/favoritos/delete/:id', control.deleteFavorite);
 routes.get('/carrito', control.getCarrito);
 
 module.exports = routes
