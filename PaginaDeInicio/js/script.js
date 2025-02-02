@@ -52,10 +52,8 @@ function comprobarSesion(){
     const options = document.querySelector(".options")
     const sesion = JSON.parse(localStorage.getItem("sesion")) || ""
     // const usuarios = JSON.parse(localStorage.getItem("registros")) || []
-    //Validación inicio de sesión
     const validacion = usuarios.some(usuario => usuario.email == sesion.usuario)
-    console.log(usuarios)
-    console.log(validacion);
+
     if(validacion == true){
         options.remove()
         const resultado = usuarios.filter(usuario => usuario.email == sesion.usuario)

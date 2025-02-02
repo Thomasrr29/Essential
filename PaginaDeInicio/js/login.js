@@ -8,6 +8,7 @@ const contenedorLogin = document.querySelector(".login")
 const cerrar = document.querySelector(".cerrar")
 
 //Desplegar iniciar y registrarse
+
 login.addEventListener("click", mostrarLogin)
 register.addEventListener("click", mostrarRegister)
 cerrar.addEventListener("click", ()=>{
@@ -22,18 +23,21 @@ cerrar.addEventListener("click", ()=>{
 
 
 const abrirSesion = () =>{
+
     contenedorLogin.style.display = "block"
     contenedorRegister.style.display = "none"
     document.querySelector(".defuminado").style.filter = "blur(3px)"
 }
 
 const abrirRegister = () =>{
+
     contenedorLogin.style.display = "none"
     contenedorRegister.style.display = "block"
     document.querySelector(".defuminado").style.filter = "blur(3px)"
 }
 
 function mostrarRegister(){
+
     contenedorLogin.style.display = "none"
     contenedorRegister.style.display = "block"
 
@@ -41,8 +45,8 @@ function mostrarRegister(){
 }
 
 function mostrarLogin(){
-    contenedorRegister.style.display = "none"
 
+    contenedorRegister.style.display = "none"
     contenedorLogin.style.display = "block"
 }
 
