@@ -134,6 +134,7 @@ async function cargarRecomendacion (){
     while(cardWrapper.children.length < 8){
 
         try{
+
             let productosAleatorios = await cargar(urlProductos)
             
             
@@ -174,7 +175,7 @@ async function cargarRecomendacion (){
     }
 }
 
-async function cargar(url){
+async function cargar(urlProductos){
     try{
         const productos = await fetch(urlProductos);  
         const daticos = await productos.json()
@@ -190,7 +191,6 @@ function numeroAleatorio (){
 
     return Math.floor( Math.random() * (28 - 1 + 1)) + 1;  
 }
-
 
 //Cargar producto seleccionado
 function cargarPrincipal(){

@@ -9,7 +9,7 @@ const buttonHeaderCarrito = document.querySelector("#button-header-carrito")
 const containerListFavorites = document.querySelector('.container-list-favorites');
 const listFavorites = document.querySelector('.list-favorites');
 
-let urlProductos = 'http://localhost:3000/productos'
+let urlProductos = 'http://localhost:4000/productos'
 let urlComparison = 'http://localhost:4004/comparados'
 
 let totalPagar = 0
@@ -17,7 +17,7 @@ let totalPagar = 0
 const showHtml = async () => {
 
 	const card_product = document.querySelectorAll(".card-product")
-	let url = "http://localhost:3000/productos"
+	let url = "http://localhost:4000/productos"
 	const favoritos = await getFavorites(url)
 	favoritos.forEach(favorito => {
 
