@@ -7,7 +7,7 @@ const buttonHeaderCarrito = document.querySelector("#button-header-carrito")
 const containerListFavorites = document.querySelector('.container-list-favorites');
 const listFavorites = document.querySelector('.list-favorites');
 
-let urlProductos = 'http://localhost:3000/productos'
+let urlProductos = 'http://localhost:4000/productos'
 
 
 let totalPagar = 0
@@ -15,7 +15,7 @@ let totalPagar = 0
 const showHtml = async () => {
 
 	const card_product = document.querySelectorAll(".card-product")
-	let url = "http://localhost:3000/favoritos"
+	let url = "http://localhost:4000/favoritos"
 	const favoritos = await getFavorites(url)
 	favoritos.forEach(favorito => {
 
@@ -29,7 +29,7 @@ const showHtml = async () => {
 		})
 	})
 
-	let url1 = "http://localhost:3000/carrito"
+	let url1 = "http://localhost:4000/carrito"
 	const counterCart = document.querySelector(".counter-cart")
 	const carrito = await getFavorites(url1)
 
@@ -40,7 +40,7 @@ const showHtml = async () => {
 //Enviar favoritos 
 const enviarFavoritos = (product) => {
 	try{ 
-		fetch("http://localhost:3000/favoritos", {
+		fetch("http://localhost:4000/favoritos", {
 			method: "POST",
 			headers: {
 				"Content-Type":"application/json"
@@ -58,7 +58,7 @@ const enviarFavoritos = (product) => {
 const enviarCarrito = (product) => {
 
 	try{ 
-		fetch("http://localhost:3000/carrito", {
+		fetch("http://localhost:4000/carrito", {
 			method: "POST",
 			headers: {
 				"Content-Type":"application/json"
@@ -76,20 +76,21 @@ const enviarCarrito = (product) => {
 //Mostrar en los favoritos 
 async function validarMostrar(deseo) {
 	const favorito_carrito = document.querySelector(".favorito-carrito")
-	let url = "http://localhost:3000/favoritos"
+	let url = "http://localhost:4000/favoritos"
 	if (deseo == "favorite") {
 		favorito_carrito.textContent = "Mis favoritos"
 		const favoritos = await getFavorites(url)
 		listFavorites.innerHTML = ""
 
+		console.log(favoritos)
+
 		favoritos.forEach(favorito => {
-			const { nombre, imagen, precio } = favorito
+			const { nombre, imagen } = favorito
 			console.log(favoritos)
 			listFavorites.innerHTML += `
 			<div class="card-favorite">
 				<img src="../sneakers/${imagen}" width="40px">
 				<p class="title">${nombre}</p>
-				<p>${precio}</p>
 			</div> 
 		`
 		})
@@ -101,7 +102,7 @@ async function validarMostrar(deseo) {
 		//Carrito
 		favorito_carrito.textContent = "Tu carrito"
 		listFavorites.innerHTML = ""
-		let url2 = "http://localhost:3000/carrito"
+		let url2 = "http://localhost:4000/carrito"
 		const carrito = await getFavorites(url2)
 		carrito.forEach(elemento => {
 			const { id, nombre, imagen, precio } = elemento
@@ -176,10 +177,10 @@ btnClose.addEventListener('click', () => {
 async function cargarProductos() {
 	const contenedor = document.querySelector(".container-products")
 	//LINK GET DE PRODUCTOS
-	const productos = await getProducts('http://localhost:3000/productos')
-	productos.forEach (producto => {
+	const productos = await getProducts(urlProductos)
+	productos.forEach(producto => {
 		const genero = localStorage.getItem("genero")
-		console.log(genero);
+		
 		if(producto.genero == genero){
 		contenedor.innerHTML += `
 		<div class="card-product" ids=${producto.id} >
@@ -210,7 +211,7 @@ async function cargarProductos() {
 	btnsFavorite.forEach(button => {
 
 		button.addEventListener('click', async (e) => {
-			let url = "http://localhost:3000/favoritos"
+			let url = "http://localhost:4000/favoritos"
 			const Allfavoritos = await getFavorites(url)
 			const idProducto = parseInt(e.target.getAttribute("idProducto"))
 			const result = Allfavoritos.some(favorito => favorito.id == idProducto)
@@ -309,7 +310,7 @@ async function cargarProductos() {
 }
 
 function borrarFavorito(id) {
-	let url = "http://localhost:3000/favoritos"
+	let url = "http://localhost:4000/favoritos"
 	fetch(`${url}/${id}`, {
 		method: "DELETE"
 	})
@@ -332,7 +333,7 @@ async function cargarProducto (id){
 function eliminarCarrito (id){
 
 	try{
-		fetch(`http://localhost:3000/deleteCarrito/${id}`, {
+		fetch(`http://localhost:4000/deleteCarrito/${id}`, {
 			method: "DELETE",
 		})
 	} catch(error){

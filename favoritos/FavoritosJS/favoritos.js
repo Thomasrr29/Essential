@@ -1,7 +1,7 @@
 import { getFavorites } from "../connection/api.js";
 
 
-let url = "http://localhost:4004/comparados"
+let url = "http://localhost:4000/comparados"
 
 async function borrar() {
 

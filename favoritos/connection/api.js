@@ -1,4 +1,5 @@
-let url = "http://localhost:3000/productos"
+let url = "http://localhost:4000/productos"
+let url1 = "http://localhost:4000/favoritos"
 
 export const getProducts = async () =>{
     const respuesta = await fetch(url)

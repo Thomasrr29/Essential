@@ -1,9 +1,8 @@
 import { getFavorites } from "../connection/api.js"
 import { getData } from "../../PaginaDeInicio/connection/api.js"
 
-//codigo exotico xd
 
-let url = "http://localhost:4003/carrito"
+let url = "http://localhost:4000/carrito"
 let totalPagar = 0
 let referencias = ""
 
@@ -63,7 +62,7 @@ async function cargarCarrito() {
                 }
 
                 setTimeout(()=>{
-                    fetch("http://localhost:4002/pedidos", {
+                    fetch("http://localhost:4000/pedidos", {
                     method: "POST",
                     body: JSON.stringify(pedido),
                     "Content-Type": "application/json"
@@ -88,7 +87,7 @@ async function cargarCarrito() {
 }
 
 async function limpiarCarrito() {
-    let urlCarrito = "http://localhost:4003/carrito"
+    let urlCarrito = "http://localhost:4000/carrito"
     const Allcarrito = await getFavorites(url)
     Allcarrito.forEach(elemento => {
         fetch(`${urlCarrito}/${elemento.id}`, {

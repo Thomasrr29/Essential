@@ -7,9 +7,9 @@ const closeButton = document.querySelector('.closeButton')
 let useValue;
 let sizeValue;
 let expectValue;
-let url = 'http://localhost:4002/resenas'
+let url = 'http://localhost:4000/resenas'
 let urlProductos = 'http://localhost:4000/productos'
-let urlCarrito = 'http://localhost:4003/carrito'
+let urlCarrito = 'http://localhost:4000/carrito'
 let numero;
 
 let swiper = new Swiper(".carouselContent ", {

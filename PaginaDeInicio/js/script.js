@@ -50,7 +50,7 @@ register.addEventListener('submit', () => {
         password: password
     }
 
-    fetch('http://localhost:3000/registro', {
+    fetch('http://localhost:4000/registro', {
         method: "POST",
         headers: {
             "Content-Type":"application/json",
@@ -82,7 +82,7 @@ login.addEventListener('submit',  async () => {
         }
 
         
-    const response = await fetch('http://localhost:3000/inicios', {
+    const response = await fetch('http://localhost:4000/inicios', {
             method: "POST",
             headers: {
                 'Content-Type':"application/json",
@@ -108,7 +108,7 @@ login.addEventListener('submit',  async () => {
 
 async function refresh(){
     const refreshToken = localStorage.getItem('refresh')
-    const response = fetch('http://localhost:3000/refresh', {
+    const response = fetch('http://localhost:4000/refresh', {
         method: "POST",
         headers: {
             "Content-Type":"application/json",
