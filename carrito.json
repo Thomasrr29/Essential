@@ -1,10 +1,10 @@
 {
   "carrito": [
     {
-      "id": "3",
-      "imagen": "http://127.0.0.1:5500/sneakers/NIKE2W_Pegasus.png",
-      "nombre": "Nike Pegasus",
-      "precio": "259.900"
+      "id": "6",
+      "imagen": "NIKE4_Revolution.png",
+      "nombre": "Nike Revolution",
+      "precio": "369000"
     }
   ]
 }

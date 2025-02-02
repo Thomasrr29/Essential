@@ -1,16 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
+
+    font-size: 16px;
+    width: 100%;
+    font-family: 'Alata', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+
+.center{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     flex-direction: column;
     margin: 20px;
+}
+
+.header {
+    width: 100%;
+    background-color: rgb(0, 58, 120);
+
+}
+
+.buscador{
+    display: none;
+}
+
+.navBar ul li a{
+    color: rgb(255, 255, 255);
+    line-height: 2;
+    position: relative;
+}
+  
+.navBar ul li a::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
+}
+  
+.navBar ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-icon {
+    cursor: pointer;
+    color: #fff;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateX(-40%);
+    width: 20rem;
+    z-index: 1;
+    display: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.custom-select:hover .options {
+    display: block;
+    flex-direction: column;
+}
+
+.header .container {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header .unorderList {
+    display: flex;
+    list-style: none;
+    margin-left: 15rem;
+}
+
+.unorderList li {
+    display: flex;
+ 
+}
+
+.unorderList a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    margin: 1.5rem;
+    
+}
+
+header .user {
+    display: flex;
+    gap: 4rem;
+    margin-left: 6rem;
+}
+
+header .navToggle {
+    font-size: 3rem;
+    background: none;
+    border: none;
+    padding: 0rem 2rem;
+    line-height: 6rem;
+    display: none;
+}
+
+.navLink:hover {
+    color: rgb(0, 132, 255);
+}
+
+.header hr {
+    opacity: 50%;
 }
 
 
@@ -34,7 +165,8 @@ table tr td{
 
 table tr td button{
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 10px;
+    border: none;
     font-size: 600;
     background-color: rgb(248, 38, 38);
     cursor: pointer;
@@ -42,9 +174,14 @@ table tr td button{
 
 .comprado{
     padding: 10px;
-	background-color: aqua;
+    background-color: rgb(0, 58, 120);
 	border-radius: 4px;
 	transition-duration: 1s;
     width: 40%;
 	cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-radius: 10px;
 }

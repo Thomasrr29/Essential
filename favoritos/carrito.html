@@ -5,11 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=
+    Josefin+Sans:wght@700&family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="carrito.css">
 </head>
 
 <body>
 
+    <header class="header">
+
+        <div class="menu container">
+            <a href="../PaginaDeInicio/index.html" class="logo"><img src="../imagenes/458_icons-02-removebg-preview.png" class="logoHeader" alt="Imagen del logo" width="70px" ></a>
+            <button class="navToggle">
+                <i class="fa-solid fa-bars" ></i>
+            </button>
+        
+            <nav class="navBar">
+                <ul class="unorderList">
+                    <li class="navItem"> <a href="../favoritos/index.html" class="navLink">Hombre</a> </li>
+                    <li class="navItem"> <a href="../favoritos/index.html" class="navLink">Mujer</a> </li>
+                    <li class="navItem"> <a href="../otros Productos/products.html" class="navLink">Accesorios</a> </li>
+                    <li class="navItem"> <a href="#comunity" class="navLink">Comunidad</a> </li>
+ 
+                </ul>
+            </nav>
+
+            <div class="user">
+                    <div class="select-icon"><a href="#"><img src="../imagenes/usuario.png" alt="" width="25rem"></a></div>
+                    <div class="options" id="options">
+                      <a href="login.html">Iniciar Sesión</a>
+                      <a href="login.html">Registrarse</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr> 
+    </header>
+
+    <section class="center">
         <table>
             <thead>
                 <tr>
@@ -28,6 +64,7 @@
 
         <p style="font-size: 20px; font-weight: 700; margin-bottom: 20px; ">total a pagar: <span class="total"></span></p>
         <button class="comprado">Realizar compra</button>
+    </section>
 
     <script src="FavoritosJS/carrito.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

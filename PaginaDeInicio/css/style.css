@@ -51,6 +51,12 @@ body {
     border: none;
 }
 
+.navBar {
+
+    display: flex;
+    justify-content: center;
+}
+
 .navBar ul li a{
     color: rgb(255, 255, 255);
     line-height: 2;
@@ -142,6 +148,7 @@ body {
 .header .unorderList {
 
     display: flex;
+    justify-content: center;
     list-style: none;
     margin-left: 15rem;
 }

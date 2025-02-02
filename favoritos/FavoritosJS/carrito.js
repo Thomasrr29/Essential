@@ -11,21 +11,32 @@ async function cargarCarrito() {
     const carrito = await getFavorites(url)
     const tbody = document.querySelector("tbody")
     carrito.forEach(producto => {
-        const { id, img, title, price } = producto
-        referencias += title + ", "
+        const { id, imagen, nombre, precio } = producto
+        referencias += nombre + ", "
         const tr = document.createElement("tr")
-        totalPagar += parseInt(price)
+        totalPagar += parseInt(precio)
         tr.innerHTML = `
             <td>${id}</td>
-            <td><img src="${img}" width="100px"></td>
-            <td>${title}</td>
-            <td>${price}</td>
+            <td><img src="../sneakers/${imagen}" width="100px"></td>
+            <td>${nombre}</td>
+            <td>$${precio}</td>
             <td>${1}</td>
             <td><button idProducto=${id}>X</button></td>
         `
         tbody.appendChild(tr)
     });
-    console.log(referencias);
+
+
+    const botonEliminar = document.querySelectorAll("tbody tr td button")
+    botonEliminar.forEach(boton =>{
+        boton.addEventListener("click", (e) =>{
+            const id = e.target.getAttribute("idProducto")
+            let urls = "http://localhost:4003/carrito"
+            fetch(`${urls}/${id}`, {
+                method: "DELETE"
+            })
+        })
+    })
 
     document.querySelector(".total").textContent = totalPagar
 
@@ -62,23 +73,22 @@ async function cargarCarrito() {
                     puntos: "+100"
                 }
 
-                setTimeout(()=>{
                     fetch("http://localhost:4002/pedidos", {
                     method: "POST",
                     body: JSON.stringify(pedido),
                     "Content-Type": "application/json"
-                })
-                limpiarCarrito()
-                window.location = "index.html"
-                }, 3000)
+                    })
+ 
 
+  
                 Swal.fire({
                     text: "compra realiazada con exito",
                     icon: "success"
                   });
-               
+                  limpiarCarrito()
+                    window.location = "index.html"      
 
-             
+
             })
         } else {
             alert("debes iniciar sesion primero pa")
@@ -90,6 +100,7 @@ async function cargarCarrito() {
 async function limpiarCarrito() {
     let urlCarrito = "http://localhost:4003/carrito"
     const Allcarrito = await getFavorites(url)
+    console.log(Allcarrito);
     Allcarrito.forEach(elemento => {
         fetch(`${urlCarrito}/${elemento.id}`, {
             method: 'DELETE',

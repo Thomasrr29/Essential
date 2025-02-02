@@ -94,9 +94,9 @@ async function validarMostrar(deseo) {
 			totalPagar += parseInt(precio)
 			listFavorites.innerHTML += `
 		<div class="card-favorite">
-		<img src="${imagen}" width="40px">
+		<img src="../sneakers/${imagen}" width="40px">
 		<p class="title">${nombre}</p>
-		<p>${precio}</p>
+		<p>$${precio}</p>
 	  </div> 
 		`
 		})
@@ -151,24 +151,22 @@ async function cargarProductos() {
 		if(producto.genero == genero){
 		contenedor.innerHTML += `
 		<div class="card-product" ids=${producto.id} >
-			
-			<div class="container-img" ids=${producto.id}>
-			<img src="../sneakers/${producto.imagen}" alt="imagen Producto" ids="${producto.id}"/>
-			<img src='images/cuadricula.png' class='comparison' ids=${producto.id}>
-			</div>
-			<div class="content-card-product" ids=${producto.id} >
-			<h3 ids=${producto.id}>${producto.nombre}</h3>
-			<p ids=${producto.id}>${producto.detalles}</p>
-			<div class="footer-card-product" ids=${producto.id}>
-				<p class="priceParent" ids=${producto.id}>$<span class="price" ids=${producto.id}>${producto.precio}</span></p>
-
-				<div class="container-buttons-card" ids=${producto.id}>
-
-					<i class="fa-regular fa-heart" id="favorite-regular" idProducto= ${producto.id} ids=${producto.id}></i>
-			
-					<i class="fa-solid fa-bag-shopping" id="carrito"  idProducto= ${producto.id} ids=${producto.id}></i>
-
+			<div class="click-allowed" ids=${producto.id}>
+				<div class="container-img" ids=${producto.id}>
+					<img src="../sneakers/${producto.imagen}" srcimg=${producto.imagen} alt="imagen Producto" ids="${producto.id}"/>
+					<img src='images/cuadricula.png' class='comparison' ids=${producto.id}>
 				</div>
+					<div class="content-card-product" ids=${producto.id} >
+						<h3 ids=${producto.id}>${producto.nombre}</h3>
+						<p ids=${producto.id}>${producto.detalles}</p>
+						<p class="priceParent" ids=${producto.id}>$<span class="price" ids=${producto.id}>${producto.precio}</span></p>
+					</div>
+			</div>
+
+				<div class="container-buttons-card">
+				<i class="fa-regular fa-heart" id="favorite-regular" idProducto= ${producto.id} ids=${producto.id}></i>
+				<i class="fa-solid fa-bag-shopping" id="carrito"  idProducto= ${producto.id} ids=${producto.id}></i>
+
 		  	</div>
 		</div>`
 
@@ -198,7 +196,7 @@ async function cargarProductos() {
 				borrarFavorito(idProducto)
 				showHtml()
 			} else {
-				const card = e.target.closest('.content-card-product');
+				const card = e.target.closest('.card-product');
 				const product = {
 					id: idProducto,
 					title: card.querySelector('h3').textContent,
@@ -217,7 +215,7 @@ async function cargarProductos() {
 			const card = e.target.closest('.card-product');
 			const product = {
 				id: idProducto,
-				imagen: card.querySelector('img').src,
+				imagen: card.querySelector('img').getAttribute("srcimg"),
 				nombre: card.querySelector('h3').textContent,
 				precio: card.querySelector('.price').textContent,
 			};
@@ -261,15 +259,17 @@ async function cargarProductos() {
 		})		
 	})
 
-	const cardProduct = document.querySelectorAll('.card-product h3')
+	const cardProduct = document.querySelectorAll('.card-product .click-allowed')
 
 	cardProduct.forEach((e) => {
 		e.addEventListener('click', (e) => {
+			if(!e.target.classList.contains("comparison")){
+				let id = e.target.getAttribute('ids')
+				cargarProducto(id)
+			}
+		
 
-			let id = e.target.getAttribute('ids')
-			cargarProducto(id)
 
-			window.location = '../Pagina producto/producto.html'
 			
 		})
 	})
@@ -296,6 +296,8 @@ async function cargarProducto (id){
     let productos = await fetch(urlProductos)
     let producto = await productos.json()
     const semejanza = producto.filter((product) => (product.id == id))
+
     localStorage.setItem('ProductClick', JSON.stringify(semejanza))
+	window.location = '../Pagina producto/producto.html'
  
 }
