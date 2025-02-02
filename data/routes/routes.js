@@ -12,8 +12,8 @@ routes.post('/favoritos', control.postFavoritos);
 routes.post('/refresh', control.refresh)
 
 routes.get('/carrito', control.getCarrito);
-routes.get('/getUsuarios', control.getInicios);
-routes.get('/getRegistros', control.getRegistros);
+routes.get('/usuarios', control.getInicios);
+routes.get('/registros', control.getRegistros);
 routes.get('/productos', control.getProducts);
 routes.get('/favoritos', control.getFavorites);
 

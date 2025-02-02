@@ -5,7 +5,7 @@ const connection = async () => {
 
     try{
 
-        await mongoose.connect('mongodb+srv://thomasrr29:vEl887qDfHJJMIhz@cluster0.tjsiu0l.mongodb.net/Essential')
+        await mongoose.connect('mongodb+srv://thomasrr29:thomasrr29@cluster0.tjsiu0l.mongodb.net/Essential')
 
     } catch(error){
 

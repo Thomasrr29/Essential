@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const body_parser = require('body-parser');
 const routes = require('./routes/routes');
 const connection = require('./config/connection');
@@ -11,7 +11,7 @@ const corsOptions = {
 connection()
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(body_parser.json());
 app.use(express.urlencoded({ extended: false}));
