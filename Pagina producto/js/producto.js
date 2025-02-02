@@ -1,5 +1,4 @@
 
-
 const stars = document.querySelectorAll('.star')
 const formulario = document.querySelector('.reviewTest')
 const botonReview = document.querySelector('.reviewButton')

@@ -40,7 +40,6 @@ function mostrarRegister(){
 
 function mostrarLogin(){
     contenedorRegister.style.display = "none"
-
     contenedorLogin.style.display = "block"
 }
 
